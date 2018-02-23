@@ -126,7 +126,7 @@ class FourierSeries:
 
         Returns
         -------
-        copy (spectranspo.FourierSeries):
+        copy (binprism.FourierSeries):
             Copy of input Fourier Series
         '''
         return FourierSeries(self.c)
@@ -148,7 +148,7 @@ class FourierSeries:
 
         Returns
         -------
-        fs (spectranspo.FourierSeries):
+        fs (binprism.FourierSeries):
             Fourier series raised to n-th power
         '''
         if n == 0:
@@ -238,7 +238,7 @@ class FourierSeries:
 
         Returns
         -------
-        derivative (spectranspo.FourierSeries):
+        derivative (binprism.FourierSeries):
             Differentiated Fourier series
         '''
         k = np.arange(self.K+1)
@@ -250,7 +250,7 @@ class FourierSeries:
 
         Returns
         -------
-        antiderivative (spectranspo.FourierSeries):
+        antiderivative (binprism.FourierSeries):
             Fourier series of the nonlinear parts of the antiderivative
         '''
         k = np.arange(self.K+1) + np.array([1] + (self.K)*[0])
@@ -292,7 +292,7 @@ class FourierSeries:
 
         Returns
         -------
-        shifted_fourier_series (spectranspo.FourierSeries):
+        shifted_fourier_series (binprism.FourierSeries):
             Fourier series shifted by phi
         '''
         k = np.arange(self.K + 1)

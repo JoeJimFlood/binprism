@@ -1,4 +1,15 @@
-=========================v0.1==========================
+========================v0.1.0=========================
 2018-22-02	Joe Flood	<joejimflood@gmail.com>
 
 	Initial commit
+
+========================v0.1.1=========================
+2018-22-02	Joe Flood	<joejimflood@gmail.com>
+
+	*Changed Profile.from_counts() to external
+	 function fit() in util module
+	*Removed references to old package name in
+	 documentation
+	*Renamed variables to make theoretically
+	 more user-friendly
+	*Moved package into own folder in repository

@@ -13,7 +13,7 @@ class PPD:
 
     Parameters
     ----------
-    L (spectranspo.FourierSeries): Fourier series defining the log-pdf of the distribution
+    L (binprism.FourierSeries): Fourier series defining the log-pdf of the distribution
     '''
     def __init__(self, FourierSeries):
 

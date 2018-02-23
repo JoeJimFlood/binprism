@@ -15,7 +15,7 @@ class Profile:
 
     Parameters
     ----------
-    dist (spectranspo.PPD):
+    dist (binprism.PPD):
         Probability distribution that events follow
     total (numeric):
         Total number of events
@@ -30,10 +30,10 @@ class Profile:
         self.mean_time = self.angle2time(dist.mean())
 
     def __str__(self):
-        return 'spectranspo.Profile\nTotal Events: {0}\nTime Range:  {1}\nMean Time: {2}\nPDF: {3}'.format(self.total,
-                                                                                                           self.time_range,
-                                                                                                           self.time2hhmm(self.mean_time),
-                                                                                                           self.dist)
+        return 'binprism.Profile\nTotal Events: {0}\nTime Range:  {1}\nMean Time: {2}\nPDF: {3}'.format(self.total,
+                                                                                                        self.time_range,
+                                                                                                        self.time2hhmm(self.mean_time),
+                                                                                                        self.dist)
 
     def __repr__(self):
         return str(self)
@@ -138,57 +138,6 @@ class Profile:
                 return outtime[1:]
             else:
                 return outtime
-        
-    @classmethod
-    def from_counts(cls, counts, breaks, K, time_range = (0, 24)):
-        '''
-        Fit profile from binned counts
-
-        Parameters
-        ----------
-        counts (array-like):
-            Array of counts
-        breaks (array-like):
-            Start times of each count period. The length must be the same as breaks
-        K (int):
-            Maximum number of Fourier coefficients to use in the underlying distribution
-        time_range (tuple):
-            Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
-        '''
-        for b in breaks:
-            if b < time_range[0] or b >= time_range[1]:
-                raise ValueError('Bin breaks must be within time_range')
-
-        assert len(breaks) == len(counts), 'Counts and breaks must have same length.'
-
-        N = len(counts)
-        counts = np.array(counts)
-        breaks = 2*pi*(np.array(breaks) - time_range[0])/(time_range[1] - time_range[0])
-        breaks = np.append(breaks, 2*pi)
-        widths = np.diff(breaks)
-        total = counts.sum()
-        props = counts / total
-
-        #Create matrix for OLS
-        X = np.zeros((N, 2*K+1), np.complex)
-        for i in range(N):
-            a = breaks[i]
-            b = breaks[i+1]
-            X[i, 0] = b - a
-            for k in range(1, K+1):
-                X[i, k] = -1j/k*(np.exp(1j*k*b) - np.exp(1j*k*a))
-                X[i, -k] = np.conj(X[i, k])
-
-        #Comute best coefficients via ordinary least squares regression
-        y = widths*np.log(props/widths)
-        XTX = np.dot(X.T, X)
-        XTy = np.dot(X.T, y)
-        c = np.linalg.solve(XTX, XTy)[:K+1]
-
-        #Create distribution
-        fs = FourierSeries(c)
-        dist = PPD(fs)
-        return cls(dist, total, time_range)
 
     def shift(self, amount):
         '''
@@ -247,7 +196,7 @@ class Profile:
         N (int):
             Number of events to simulate
         kwargs:
-            spectranspo.PPD.sim keyword arguments
+            binprism.PPD.sim keyword arguments
 
         Returns
         -------

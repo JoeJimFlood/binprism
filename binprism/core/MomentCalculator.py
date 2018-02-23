@@ -7,7 +7,7 @@ class MomentCalculator:
 
     Parameters
     ----------
-    dist (spectranspo.PPD):
+    dist (binprism.PPD):
         Distribution to calculate moments of
     '''
     def __init__(self, dist):

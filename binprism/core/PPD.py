@@ -13,18 +13,19 @@ class PPD:
 
     Parameters
     ----------
-    L (binprism.FourierSeries): Fourier series defining the log-pdf of the distribution
+    log_pdf_coef (binprism.FourierSeries): Fourier series defining the log-pdf of the distribution (aka L)
     '''
-    def __init__(self, FourierSeries):
+    def __init__(self, log_pdf_coef):
 
-        self.L = FourierSeries
-        init_area = self.L.exp().integrate(0, 2*pi)
-        self.L[0] -= log(init_area)
+        self.log_pdf_coef = log_pdf_coef
+        init_area = self.log_pdf_coef.exp().integrate(0, 2*pi)
+        self.log_pdf_coef[0] -= log(init_area) #Normalize so that area of one period is equal to one
+        self.L = self.log_pdf_coef
         self.time_range = (0, 2*pi)
         self.m = MomentCalculator(self)
 
     def __repr__(self):
-        return 'f(x) = exp({})'.format(self.L)
+        return 'f(x) = exp({})'.format(self.log_pdf_coef)
 
     def pdf(self, theta):
         '''
@@ -40,7 +41,7 @@ class PPD:
         f (numeric or array-like):
             pdf evaluated at theta
         '''
-        return np.exp(self.L.eval(theta))
+        return np.exp(self.log_pdf_coef.eval(theta))
 
     def cdf(self, theta):
         '''
@@ -56,7 +57,7 @@ class PPD:
         F (numeric or array-like):
             cdf evaluated at theta
         '''
-        return self.L.exp().integrate(0, theta)
+        return self.log_pdf_coef.exp().integrate(0, theta)
 
     def quantile(self, p, tol = 1e-8, max_iter = 1000, n_interpolation_points = 4):
         '''

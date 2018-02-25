@@ -14,7 +14,7 @@ class MomentCalculator:
         self.dist = dist
 
     def __getitem__(self, n):
-        moments = 2*pi*conj(self.dist.L.exp().c)
+        moments = 2*pi*conj(self.dist.log_pdf_coef.exp().c)
         try:
             return moments[n]
         except IndexError:

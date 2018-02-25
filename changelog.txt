@@ -13,3 +13,9 @@
 	*Renamed variables to make theoretically
 	 more user-friendly
 	*Moved package into own folder in repository
+
+========================v0.1.2=========================
+2018-25-02	Joe Flood	<joejimflood@gmail.com>
+	*Changed FourierSeries.K to *.n_harmonics and
+	 PPD.L to PPD.log_pdf_coef for increased read-
+	 ability (though kept them as shortcuts)

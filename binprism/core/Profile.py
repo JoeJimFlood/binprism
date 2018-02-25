@@ -41,7 +41,7 @@ class Profile:
     def __add__(self, other):
         self_hourly = self['hourly']
         other_hourly = other['hourly']
-        return Profile.from_counts(self_hourly + other_hourly, np.arange(24), self.dist.L.K, self.time_range)
+        return Profile.from_counts(self_hourly + other_hourly, np.arange(24), self.dist.log_pdf_coef.n_harmonics, self.time_range)
 
     def __mul__(self, other):
         return Profile(self.dist, other*self.total, self.time_range)
@@ -149,7 +149,7 @@ class Profile:
             Amount in the units specified by time_dist to shift the demand
         '''
         phi = self.time2angle(amount)
-        return Profile(PPD(self.dist.L.shift(phi, False)), self.total, self.time_range)
+        return Profile(PPD(self.dist.log_pdf_coef.shift(phi, False)), self.total, self.time_range)
 
     def eval(self, t):
         '''

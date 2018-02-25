@@ -12,13 +12,14 @@ class FourierSeries:
     ----------
     c (numpy.array):
         DC component as well as positive-indexed elements of Fourier series
-    K (int):
-        Number of component waves
+    n_harmonics (int):
+        Number of component waves (aka K)
     '''
     def __init__(self, c):
         self.c = np.array(c)
-        self.K = len(c) - 1
-
+        self.n_harmonics = len(c) - 1
+        self.K = self.n_harmonics
+        
     def __getitem__(self, key):
         return self.c[key]
 
@@ -32,7 +33,7 @@ class FourierSeries:
         if len(self) == 1:
             return str(self[0])
         out = '{0} + ({1})cos(x) + ({2})sin(x)'.format(np.real(self[0]), 2*np.real(self[1]), -2*np.imag(self[1]))
-        for k in range(2, self.K+1):
+        for k in range(2, self.n_harmonics+1):
             out += ' + ({0})cos({1}x) + ({2})sin({3}x)'.format(2*np.real(self[k]), k, -2*np.imag(self[k]), k)
         return out
 
@@ -132,10 +133,10 @@ class FourierSeries:
         return FourierSeries(self.c)
 
     def expand(self):
-        self.c = np.append(self.c, np.conj(np.fliplr(np.reshape(self.c, (1, self.K+1))[:, 1:])[0]))
+        self.c = np.append(self.c, np.conj(np.fliplr(np.reshape(self.c, (1, self.n_harmonics+1))[:, 1:])[0]))
 
     def contract(self):
-        self.c = self.c[:self.K+1]
+        self.c = self.c[:self.n_harmonics+1]
 
     def power(self, n):
         '''
@@ -228,7 +229,7 @@ class FourierSeries:
             Y-value(s) of Fourier series evaluated at x
         '''
         y = np.real(self.c[0])*np.ones_like(x)
-        for k in range(1, self.K+1):
+        for k in range(1, self.n_harmonics+1):
             y += np.real(self.c[k]*np.exp(1j*k*x) + np.conj(self.c[k])*np.exp(-1j*k*x))
         return y
 
@@ -241,7 +242,7 @@ class FourierSeries:
         derivative (binprism.FourierSeries):
             Differentiated Fourier series
         '''
-        k = np.arange(self.K+1)
+        k = np.arange(self.n_harmonics+1)
         return FourierSeries(self.c*1j*k)
 
     def antiderivative(self):
@@ -253,7 +254,7 @@ class FourierSeries:
         antiderivative (binprism.FourierSeries):
             Fourier series of the nonlinear parts of the antiderivative
         '''
-        k = np.arange(self.K+1) + np.array([1] + (self.K)*[0])
+        k = np.arange(self.n_harmonics+1) + np.array([1] + (self.n_harmonics)*[0])
         ad_c = -self.c*1j/k
         ad_c[0] = 0
         return FourierSeries(ad_c)
@@ -295,7 +296,7 @@ class FourierSeries:
         shifted_fourier_series (binprism.FourierSeries):
             Fourier series shifted by phi
         '''
-        k = np.arange(self.K + 1)
+        k = np.arange(self.n_harmonics + 1)
         z = np.exp(-1j*phi*k)
         if inplace:
             self.c *= z

@@ -3,7 +3,6 @@ import numpy as np
 from .FourierSeries import FourierSeries
 from .MomentCalculator import MomentCalculator
 from math import exp, log, pi, factorial as fac
-from scipy.integrate import simps
 from numbers import Number
 from multiprocessing import Pool
 

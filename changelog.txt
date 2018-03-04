@@ -1,10 +1,10 @@
 ========================v0.1.0=========================
-2018-22-02	Joe Flood	<joejimflood@gmail.com>
+2018-02-22	Joe Flood	<joejimflood@gmail.com>
 
 	Initial commit
 
 ========================v0.1.1=========================
-2018-22-02	Joe Flood	<joejimflood@gmail.com>
+2018-02-22	Joe Flood	<joejimflood@gmail.com>
 
 	*Changed Profile.from_counts() to external
 	 function fit() in util module
@@ -15,7 +15,12 @@
 	*Moved package into own folder in repository
 
 ========================v0.1.2=========================
-2018-25-02	Joe Flood	<joejimflood@gmail.com>
+2018-02-25	Joe Flood	<joejimflood@gmail.com>
 	*Changed FourierSeries.K to *.n_harmonics and
 	 PPD.L to PPD.log_pdf_coef for increased read-
 	 ability (though kept them as shortcuts)
+
+========================v0.2.0=========================
+2018-03-04	Joe Flood	<joejimflood@gmail.com>
+
+	*Added I/O tools

@@ -3,7 +3,6 @@ from .FourierSeries import FourierSeries
 from .PPD import PPD
 from .tools import counting
 import numpy as np
-from scipy.special import i0
 from math import pi, log
 from datetime import time, datetime
 from dateutil.tz import tzlocal
@@ -32,7 +31,7 @@ class Profile:
     def __str__(self):
         return 'binprism.Profile\nTotal Events: {0}\nTime Range:  {1}\nMean Time: {2}\nPDF: {3}'.format(self.total,
                                                                                                         self.time_range,
-                                                                                                        self.time2hhmm(self.mean_time),
+                                                                                                        self.mean_time,
                                                                                                         self.dist)
 
     def __repr__(self):

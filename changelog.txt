@@ -24,3 +24,10 @@
 2018-03-04	Joe Flood	<joejimflood@gmail.com>
 
 	*Added I/O tools
+
+========================v0.2.1=========================
+2018-03-04	Joe Flood	<joejimflood@gmail.com>
+
+	*Changed Profile indexing so that a single
+	 numeric value results in that many bins being
+	 aggregated from the Profile

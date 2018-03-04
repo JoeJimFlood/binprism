@@ -56,23 +56,18 @@ class Profile:
 
     def __getitem__(self, *args):
 
-        if args[0] == 'hourly':
-            return counting.array(self, np.linspace(self.time_range[0], self.time_range[1], 24, False))
-        
-        elif args[0] == '15min':
-            return counting.array(self, np.linspace(self.time_range[0], self.time_range[1], 96, False))
+        if type(args[0]) == int or type(args[0]) == float:
+            times = np.linspace(self.time_range[0], self.time_range[1], int(args[0]), False)
+            return counting.array(self, times)
 
-        elif type(args[0]) == 'str':
-            raise ValueError('Invalid TimeDist index. Must be iterable, numeric, slice, "hourly", or "15min".')
-
-        if type(args[0]) == slice:
+        elif type(args[0]) == slice:
             if args[0].step == None:
                 return self.count_events(args[0].start, args[0].stop)
             else:
                 return counting.array(self, np.arange(args[0].start, args[0].stop + args[0].step, args[0].step))[:-1]
 
-        if type(args[0]) == int or type(args[0]) == float:
-            return self.count_events(0, args[0])
+        else:
+            return counting.array(self, *args)
 
         return counting.array(self, args[0])
 

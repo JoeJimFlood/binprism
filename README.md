@@ -14,5 +14,5 @@ Because the pdf is periodic, it can be expanded into a Fourier series. However, 
 </p>
 Because Fourier series converge, they can be sufficiently approximated by a finite number of terms:
 <p align="center">
-  l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}}
+  <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" title="l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}}" /></a>
 </p>

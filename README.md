@@ -16,3 +16,7 @@ Because Fourier series converge, they can be sufficiently approximated by a fini
 <p align="center">
   <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" title="l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}}" /></a>
 </p>
+The proportion, p, of events between times t_a and t_b can be obtained by integrating the exponentiated log-pdf from t_a to t_b:
+<p align="center">
+  <a href="https://www.codecogs.com/eqnedit.php?latex=p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}})dt" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}})dt" title="p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}})dt" /></a>
+</p>

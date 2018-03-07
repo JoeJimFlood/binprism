@@ -43,3 +43,13 @@ Substituting p_0 with \Delta t further simplifies the approximation.
 <p align="center">
   <a href="https://www.codecogs.com/eqnedit.php?latex=p_0(\ln(p)-\ln(\Delta&space;t)))-\Delta&space;t-\Delta&space;t=p_0\ln(\frac{p}{\Delta&space;t})\approx&space;L_0\Delta&space;t&plus;\sum_{k=1}^{K}-i\frac{L_k}{k}(e^{i\frac{2\pi&space;kt_b}{T}}-e^{i\frac{2\pi&space;kt_a}{T}})&plus;i\frac{\bar{L_k}}{k}(e^{-i\frac{2\pi&space;kt_b}{T}}-e^{-i\frac{2\pi&space;kt_a}{T}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_0(\ln(p)-\ln(\Delta&space;t)))-\Delta&space;t-\Delta&space;t=p_0\ln(\frac{p}{\Delta&space;t})\approx&space;L_0\Delta&space;t&plus;\sum_{k=1}^{K}-i\frac{L_k}{k}(e^{i\frac{2\pi&space;kt_b}{T}}-e^{i\frac{2\pi&space;kt_a}{T}})&plus;i\frac{\bar{L_k}}{k}(e^{-i\frac{2\pi&space;kt_b}{T}}-e^{-i\frac{2\pi&space;kt_a}{T}})" title="p_0(\ln(p)-\ln(\Delta t)))-\Delta t-\Delta t=p_0\ln(\frac{p}{\Delta t})\approx L_0\Delta t+\sum_{k=1}^{K}-i\frac{L_k}{k}(e^{i\frac{2\pi kt_b}{T}}-e^{i\frac{2\pi kt_a}{T}})+i\frac{\bar{L_k}}{k}(e^{-i\frac{2\pi kt_b}{T}}-e^{-i\frac{2\pi kt_a}{T}})" /></a>
 </p>
+The right side of the previous equation can be expressed as a matrix product between two vectors:
+<p align="center">
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\Delta&space;t\ln(\frac{p}{\Delta&space;t})\approx\textbf{xl}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Delta&space;t\ln(\frac{p}{\Delta&space;t})\approx\textbf{xl}" title="\Delta t\ln(\frac{p}{\Delta t})\approx\textbf{xl}" /></a>
+</p>
+<p align="center">  
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\textbf{x}_k=\left\{\begin{matrix}&space;\Delta&space;t&space;&&space;k=0\\&space;\frac{i}{k}(e^{i\frac{2\pi&space;kt_b}{T}}-e^{i\frac{2\pi&space;kt_a}{T}})&space;&&space;k\ne0&space;\end{matrix}\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\textbf{x}_k=\left\{\begin{matrix}&space;\Delta&space;t&space;&&space;k=0\\&space;\frac{i}{k}(e^{i\frac{2\pi&space;kt_b}{T}}-e^{i\frac{2\pi&space;kt_a}{T}})&space;&&space;k\ne0&space;\end{matrix}\right." title="\textbf{x}_k=\left\{\begin{matrix} \Delta t & k=0\\ \frac{i}{k}(e^{i\frac{2\pi kt_b}{T}}-e^{i\frac{2\pi kt_a}{T}}) & k\ne0 \end{matrix}\right." /></a>  
+</p>
+<p align="center">
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\textbf{l}_k=L_k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\textbf{l}_k=L_k" title="\textbf{l}_k=L_k" /></a>
+</p>

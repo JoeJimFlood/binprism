@@ -53,3 +53,8 @@ The right side of the previous equation can be expressed as a matrix product bet
 <p align="center">
   <a href="https://www.codecogs.com/eqnedit.php?latex=\textbf{l}_k=L_k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\textbf{l}_k=L_k" title="\textbf{l}_k=L_k" /></a>
 </p>
+If N time periods are used, then the previous equation can be arranged into a system of linear equations.
+<p align="center">
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\textbf{Xl}\equiv\begin{pmatrix}&space;\textbf{x}_1\\&space;\textbf{x}_2\\&space;\vdots&space;\\&space;\textbf{x}_N&space;\end{pmatrix}\textbf{l}\approx\begin{pmatrix}&space;\Delta&space;t_1\ln(\frac{p_1}{\Delta&space;t_1})\\&space;\Delta&space;t_2\ln(\frac{p_2}{\Delta&space;t_2})\\&space;\vdots&space;\\&space;\Delta&space;t_N\ln(\frac{p_N}{\Delta&space;t_N})&space;\end{pmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\textbf{Xl}\equiv\begin{pmatrix}&space;\textbf{x}_1\\&space;\textbf{x}_2\\&space;\vdots&space;\\&space;\textbf{x}_N&space;\end{pmatrix}\textbf{l}\approx\begin{pmatrix}&space;\Delta&space;t_1\ln(\frac{p_1}{\Delta&space;t_1})\\&space;\Delta&space;t_2\ln(\frac{p_2}{\Delta&space;t_2})\\&space;\vdots&space;\\&space;\Delta&space;t_N\ln(\frac{p_N}{\Delta&space;t_N})&space;\end{pmatrix}" title="\textbf{Xl}\equiv\begin{pmatrix} \textbf{x}_1\\ \textbf{x}_2\\ \vdots \\ \textbf{x}_N \end{pmatrix}\textbf{l}\approx\begin{pmatrix} \Delta t_1\ln(\frac{p_1}{\Delta t_1})\\ \Delta t_2\ln(\frac{p_2}{\Delta t_2})\\ \vdots \\ \Delta t_N\ln(\frac{p_N}{\Delta t_N}) \end{pmatrix}" /></a>
+</p>
+If N=2K+1, then the values of L_k can be solved for directly. However, if N>2K+1, then they can be found using ordinary least squares regression.

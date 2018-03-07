@@ -10,15 +10,15 @@ Random events occur at different times following a profile P(t) with period T. D
 </p>
 Because the pdf is periodic, it can be expanded into a Fourier series. However, low-frequency approximations of the pdf can result in periods with negative probabilities, violating one of the properties of pdfs. This can be resolved by performing the Fourier series expansion on the logarithm of the pdf, or the log-pdf. Because the pdf is periodic, the log-pdf must be as well.
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{\frac{2\pi&space;kt}{T}}" title="l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{\frac{2\pi kt}{T}}" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{i\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{i\frac{2\pi&space;kt}{T}}" title="l(t)\equiv\ln{f(t)}=\sum_{k=-\infty}^{\infty}L_ke^{i\frac{2\pi kt}{T}}" /></a>
 </p>
 Because Fourier series converge, they can be sufficiently approximated by a finite number of terms:
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}}" title="l(t)\approx\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}}" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=l(t)\approx\sum_{k=-K}^{K}L_ke^{i\frac{2\pi&space;kt}{T}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(t)\approx\sum_{k=-K}^{K}L_ke^{i\frac{2\pi&space;kt}{T}}" title="l(t)\approx\sum_{k=-K}^{K}L_ke^{i\frac{2\pi kt}{T}}" /></a>
 </p>
 The proportion, p, of events between times t_a and t_b can be obtained by integrating the exponentiated log-pdf from t_a to t_b:
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}})dt" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi&space;kt}{T}})dt" title="p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{\frac{2\pi kt}{T}})dt" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{i\frac{2\pi&space;kt}{T}})dt" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{i\frac{2\pi&space;kt}{T}})dt" title="p\equiv\int_{t_a}^{t_b}f(t)dt=\int_{t_a}^{t_b}\exp(l(t))dt\approx\int_{t_a}^{t_b}\exp(\sum_{k=-K}^{K}L_ke^{i\frac{2\pi kt}{T}})dt" /></a>
 </p>
 If one has the proportion of events from multiple time periods, then the Fourier coefficients L_k that minimize the error can be estimated using a non-linear optimization algorithm. However, such algorithms can be very time consuming. Fortunately, a solution can be quickly approximated by linearizing the problem using Taylor series. To start, the integrand in the previous equation can be expanded in the following way:
 <p align="center">

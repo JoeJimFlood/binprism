@@ -31,3 +31,10 @@
 	*Changed Profile indexing so that a single
 	 numeric value results in that many bins being
 	 aggregated from the Profile
+
+========================v0.2.2=========================
+2018-03-10	Joe Flood	<joejimflood@gmail.com>
+
+	*Removed time_range attribute from PPD
+	*Renamed FourierSeries.c to FourierSeries.coef
+	 but kept c as an alias

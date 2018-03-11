@@ -10,14 +10,15 @@ class FourierSeries:
 
     Attributes
     ----------
-    c (numpy.array):
-        DC component as well as positive-indexed elements of Fourier series
+    coef (numpy.array):
+        DC component as well as positive-indexed elements of Fourier series (aka c)
     n_harmonics (int):
         Number of component waves (aka K)
     '''
-    def __init__(self, c):
-        self.c = np.array(c)
-        self.n_harmonics = len(c) - 1
+    def __init__(self, coef):
+        self.coef = np.array(coef)
+        self.c = self.coef
+        self.n_harmonics = len(coef) - 1
         self.K = self.n_harmonics
         
     def __getitem__(self, key):

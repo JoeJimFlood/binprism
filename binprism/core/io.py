@@ -108,7 +108,7 @@ class save:
         try:
             import pandas as pd
             df = save(self.profiles).df()
-            df.to_csv(fp, include_index = False)
+            df.to_csv(fp, index = False)
         except ImportError:
             #Make this an external tool
             K = 0

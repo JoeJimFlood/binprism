@@ -5,6 +5,6 @@ Often, data from continuous variables are binned. When bins are too large, one c
 ![Demonstration of BinPrism](doc/BinPrismDemo.gif)
 
 ## Contents
-Data Structure <br />
+[Data Structure](doc/datastructure.md) <br />
 [Methodology](doc/methodology.md) <br />
 Examples <br />

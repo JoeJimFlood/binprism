@@ -1,9 +1,9 @@
 # Data Structure
-BinPrism uses nested classes. The most basic class is the [FourierSeries](FourierSeries.md). This object contains a NumPy array of the zero and positive-indexed components of a Fourier series (the negative-indexed components are derived using complex conjugation). The next class up is the [PPD](https://github.com/JoeJimFlood/binprism/blob/master/doc/PPD.md) (periodic probability distribution), which is defined by the Fourier coefficients of its log-pdf, expressed as a `FourierSeries` instance. `PPD` objects also have a [MomentCalculator](https://github.com/JoeJimFlood/binprism/blob/master/doc/MomentCalculator.md), which is used to calculate circular moments of the distribution. The final, primary class in BinPrism is that of the [Profile](https://github.com/JoeJimFlood/binprism/blob/master/doc/Profile.md), which is a `PPD` along with a total number of events and a range of times over which the events take place. The `fit` method creates a `Profile` from input binned data using the algorithm described [here](https://github.com/JoeJimFlood/binprism/blob/master/doc/methodology.md).
-![alt-text](https://github.com/JoeJimFlood/binprism/blob/master/doc/BinPrismStructure/Slide2.PNG "Nested Class Structure")
-![alt-text](https://github.com/JoeJimFlood/binprism/blob/master/doc/BinPrismStructure/Slide1.PNG "BinPrism Data Schema")
+BinPrism uses nested classes. The most basic class is the [FourierSeries](FourierSeries.md). This object contains a NumPy array of the zero and positive-indexed components of a Fourier series (the negative-indexed components are derived using complex conjugation). The next class up is the [PPD](PPD.md) (periodic probability distribution), which is defined by the Fourier coefficients of its log-pdf, expressed as a `FourierSeries` instance. `PPD` objects also have a [MomentCalculator](MomentCalculator.md), which is used to calculate circular moments of the distribution. The final, primary class in BinPrism is that of the [Profile](Profile.md), which is a `PPD` along with a total number of events and a range of times over which the events take place. The `fit` method creates a `Profile` from input binned data using the algorithm described [here](methodology.md).
+![alt-text](BinPrismStructure/Slide2.PNG "Nested Class Structure")
+![alt-text](BinPrismStructure/Slide1.PNG "BinPrism Data Schema")
 ## Descriptions of BinPrism Classes and Their Methods
-[FourierSeries](https://github.com/JoeJimFlood/binprism/blob/master/doc/FourierSeries.md) <br />
-[PPD](https://github.com/JoeJimFlood/binprism/blob/master/doc/PPD.md) <br />
-[MomentCalculator](https://github.com/JoeJimFlood/binprism/blob/master/doc/MomentCalculator.md) <br />
-[Profile](https://github.com/JoeJimFlood/binprism/blob/master/doc/Profile.md) <br />
+[FourierSeries](FourierSeries.md) <br />
+[PPD](PPD.md) <br />
+[MomentCalculator](MomentCalculator.md) <br />
+[Profile](Profile.md) <br />

@@ -1,4 +1,9 @@
 # Data Structure
-BinPrism uses nested classes. The most basic class is the FourierSeries. This object contains a NumPy array of the zero and positive-indexed components of a Fourier series (the negative-indexed components are derived using complex conjugation). The next class up is the PPD (periodic probability distribution), which is defined by the Fourier coefficients of its log-pdf, expressed as a `FourierSeries` instance. The final, primary class in BinPrism is that of the Profile, which is a `PPD` along with a total number of events and a range of times over which the events take place. In addition, a MomentCalculator class exists for calculating circular moments of `PPD` instances.
+BinPrism uses nested classes. The most basic class is the FourierSeries. This object contains a NumPy array of the zero and positive-indexed components of a Fourier series (the negative-indexed components are derived using complex conjugation). The next class up is the PPD (periodic probability distribution), which is defined by the Fourier coefficients of its log-pdf, expressed as a `FourierSeries` instance. The final, primary class in BinPrism is that of the Profile, which is a `PPD` along with a total number of events and a range of times over which the events take place. The `fit` method creates a `Profile` from input binned data using the algorithm described [here](https://github.com/JoeJimFlood/binprism/blob/master/doc/methodology.md). In addition, a MomentCalculator class exists for calculating circular moments of `PPD` instances.
 ![alt-text](https://github.com/JoeJimFlood/binprism/blob/master/doc/BinPrismStructure/Slide2.PNG "Nested Class Structure")
 ![alt-text](https://github.com/JoeJimFlood/binprism/blob/master/doc/BinPrismStructure/Slide1.PNG "BinPrism Data Schema")
+## Descriptions of BinPrism Classes and Their Methods
+FourierSeries <br />
+PPD <br />
+Profile <br />
+MomentCalculator <br />

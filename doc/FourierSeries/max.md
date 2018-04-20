@@ -1,4 +1,4 @@
-# max
+# FourierSeries.max
 **`binprism.FourierSeries.max(N = 1024)`** <br/>
 Estimates the maximum of the function represented by the Fourier series by evaluating at many equally-spaced points within a period and returning the maximum.
 ## Parameters

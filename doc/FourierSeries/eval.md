@@ -1,4 +1,4 @@
-# eval
+# FourierSeries.eval
 **`binprism.FourierSeries.eval(x)`** <br />
 Evaluates the Fourier series at the value(s) x
 ## Parameters

@@ -11,5 +11,13 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 *K: Alias of* `n_harmonics` <br/>
 
 ## Methods
-
-
+[antiderivative](antiderivative.md)
+[copy](copy.md)
+[diff](diff.md)
+[eval](eval.md)
+[exp](exp.md)
+[integrate](integrate.md)
+[log](log.md)
+[max](max.md)
+[min](min.md)
+[shift](shift.md)

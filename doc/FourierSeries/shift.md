@@ -1,4 +1,4 @@
-# shift
+# FourierSeries.shift
 **`binprism.FourierSeries.shift(phi, inplace = True)`** <br />
 Shifts a Fourier series by phase shift `phi`
 ## Parameters

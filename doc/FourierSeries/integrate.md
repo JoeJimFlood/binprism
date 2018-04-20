@@ -1,4 +1,4 @@
-# integrate
+# FourierSeries.integrate
 **`binprism.FourierSeries.integrate(a, b)`** <br />
 Integrates the function represented by the Fourier series from `a` to `b`.
 ## Parameters

@@ -1,4 +1,4 @@
-# copy
+# FourierSeries.copy
 **`binprism.FourierSeries.copy()`** <br />
 Creates a copy of the Fourier series object.
 ## Returns

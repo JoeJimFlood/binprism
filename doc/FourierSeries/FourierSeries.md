@@ -1,4 +1,4 @@
-# FourierSeries
+# binprism.FourierSeries
 **`binprism.FourierSeries(coef)`** <br />
 *coef (numpy.array): Zero- and positive-indexed Fourier coefficients* <br />
 

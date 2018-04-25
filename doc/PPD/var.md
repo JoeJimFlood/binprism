@@ -1,5 +1,5 @@
 # binprism.PPD.var
-***`PPD.var()`*** <br />
+**`PPD.var()`** <br />
 Returns the circular variance of the distribution
 
 ## Returns

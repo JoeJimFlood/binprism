@@ -7,4 +7,4 @@ Converts a time value to a time in hh:mm format.
 **format24 (bool):** *Indicates whether or not to use 24-hour time format. If not specified, inferred based on local time zone.*
 
 ## Returns
-*outtime (str): Time in hh:mm format*
+**outtime (str):** *Time in hh:mm format*

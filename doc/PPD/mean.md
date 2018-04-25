@@ -1,5 +1,5 @@
 # binprism.PPD.mean
-***`PPD.mean()`*** <br />
+**`PPD.mean()`** <br />
 Returns the mean angle of the distribution
 
 ## Returns

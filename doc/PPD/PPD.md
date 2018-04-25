@@ -11,10 +11,10 @@ The `PPD` class is a periodic probability distribution defined by the Fourier co
 *m: Alias of* `moments`
 
 ## Methods
-*[cdf](cdf.md) <br />
-*[disp](disp.md) <br />
-*[mean](mean.md) <br />
-*[pdf](pdf.md) <br />
-*[quantile](quantile.md) <br />
-*[sim](sim.md) <br />
-*[var](var.md)
+[cdf](cdf.md) <br />
+[disp](disp.md) <br />
+[mean](mean.md) <br />
+[pdf](pdf.md) <br />
+[quantile](quantile.md) <br />
+[sim](sim.md) <br />
+[var](var.md)

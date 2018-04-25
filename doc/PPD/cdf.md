@@ -1,5 +1,5 @@
 # binprism.PPD.cdf
-***`PPD.cdf(theta)`*** <br />
+**`PPD.cdf(theta)`** <br />
 Cummulative distribution function at `theta`
 
 ## Parameters

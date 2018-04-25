@@ -1,5 +1,5 @@
 # binprism.PPD
-***`PPD.quantile(p, tol = 1e-8, max_iter = 1000, n_interpolation_points = 4)`***
+***`PPD.quantile(p, tol = 1e-8, max_iter = 1000, n_interpolation_points = 4)`*** <br />
 Quantile function evaluated at a probability using the Newton-Raphson method
 
 ## Parameters

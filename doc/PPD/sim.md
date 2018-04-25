@@ -4,7 +4,7 @@ Simulates `N` angles following the distribution by simulating N random values be
 
 ## Parameters
 *N (int): Number of angles to simulate* <br />
-* ***kwargs: Additional arguments for evaluating the [quantile](quantile.md) function (tol, max_iter, n_interpolation_points)*
+*kwargs: Additional arguments for evaluating the [quantile](quantile.md) function (tol, max_iter, n_interpolation_points)*
 
 ## Returns
 *angles (numpy.array): Simulated angles*

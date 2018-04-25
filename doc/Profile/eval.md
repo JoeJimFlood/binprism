@@ -1,5 +1,5 @@
 # binprism.Profile.eval
-**`Profile.eval(t)`**
+**`Profile.eval(t)`** <br />
 Evaluates the profile at time `t`
 
 ## Parmeters

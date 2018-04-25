@@ -12,11 +12,11 @@ A profile of events distributed throughout a time period, such as events through
 *mean_time (float): Mean time that events occur in the units defined by* `time_range`
 
 ## Methods
-angle2time
-count_events
-eval
-plot
-shift
-sim
-time2angle
-time2hhmm
+angle2time <br />
+count_events <br />
+eval <br />
+plot <br />
+shift <br />
+sim <br />
+time2angle <br />
+time2hhmm <br />

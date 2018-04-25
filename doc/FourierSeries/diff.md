@@ -1,5 +1,5 @@
-# FourierSeries.diff
-**`binprism.FourierSeries.diff()`** <br />
+# binprism.FourierSeries.diff
+**`FourierSeries.diff()`** <br />
 Returns Fourier series of the derivative
 ## Returns
 *derivative (binprism.FourierSeries): Differentiated Fourier series*

@@ -1,5 +1,5 @@
 # binprism.PPD.sim
-***`PPD.sim(N, **kwargs)`*** <br />
+**`PPD.sim(N, **kwargs)`** <br />
 Simulates `N` angles following the distribution by simulating N random values between 0 and 1 and then evaluating the quantile function
 
 ## Parameters

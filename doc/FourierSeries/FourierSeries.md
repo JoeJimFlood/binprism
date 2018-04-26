@@ -1,6 +1,6 @@
 # binprism.FourierSeries
 **`binprism.FourierSeries(coef)`** <br />
-**coef (numpy.array)**: * Zero- and positive-indexed Fourier coefficients* <br />
+**coef (numpy.array)**: *Zero- and positive-indexed Fourier coefficients* <br />
 
 A `FourierSeries` is the most basic class in the BinPrism package. It contains the coefficients of a Fourier series representing a real-valued periodic function. The function is of the form: <br />
 `coef[0] + coef[1]*exp(1j*x) + np.conj(coef[1])*exp(-1j*x) + coef[2]*exp(2j*x) + np.conj(coef[2])*exp(-2j*x) + ...` <br />

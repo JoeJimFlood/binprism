@@ -1,4 +1,6 @@
 # Methodology
+The following methodology is used to fit profiles to binned data by calling the [fit](fit.md) method. <br />
+<br />
 Random events occur at different times following a profile P(t) with period T. Dividing the profile by the total number of events results in a periodic probability density function (pdf):
 <p align="center">
   <a href="https://www.codecogs.com/eqnedit.php?latex=f(t)\equiv\frac{P(t)}{P_{tot}}" target="_blank"><img      src="https://latex.codecogs.com/gif.latex?f(t)\equiv\frac{P(t)}{P_{tot}}" title="f(t)\equiv\frac{P(t)}{P_{tot}}" /></a>

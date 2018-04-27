@@ -3,7 +3,7 @@
 Evaluates the probability distribution function at `theta`
 
 ## Parameters
-*theta (numeric or array-like): Angle at which to evaluate the PDF*
+**theta (numeric or array-like):** *Angle at which to evaluate the PDF*
 
 ## Returns
 *f (numeric or array-like): PDF evaluated at* `theta`

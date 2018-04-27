@@ -47,4 +47,4 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
-![alt_text](FourierSeries.PNG "Fourier Series Example")
+![alt text](FourierSeries.PNG "Fourier Series Example")

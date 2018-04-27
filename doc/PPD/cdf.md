@@ -3,7 +3,7 @@
 Cummulative distribution function at `theta`
 
 ## Parameters
-*theta (numeric or array-like): Angle at which to evaluate the CDF*
+**theta (numeric or array-like):** *Angle at which to evaluate the CDF*
 
 ## Returns
-*F (numeric or array-like): CDF evaluated at* `theta`
+**F (numeric or array-like):** *CDF evaluated at* `theta`

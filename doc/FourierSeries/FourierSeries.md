@@ -43,5 +43,7 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 >>> plt.plot(x, fs2.eval(x), color = 'b', label = str(fs2))
 >>> plt.plot(x, fs3.eval(x), color = 'm', label = str(fs3))
 >>> plt.grid(True)
+>>> plt.xlim(0, 2*np.pi)
+>>> plt.legend(loc = 'best')
 >>> plt.show()
 ```

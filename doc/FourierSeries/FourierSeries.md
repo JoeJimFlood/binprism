@@ -24,7 +24,7 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 [min](min.md) <br/>
 [shift](shift.md)
 
-## Examples
+## Example
 ```
 >>> import binprism as bp
 >>> import numpy as np
@@ -47,3 +47,4 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
+![alt_text](FourierSeries.PNG "Fourier Series Example")

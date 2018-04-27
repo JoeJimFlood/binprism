@@ -3,4 +3,4 @@
 Returns the mean angle of the distribution
 
 ## Returns
-*mean (float): Mean angle of the distribution in radians*
+**mean (float):** *Mean angle of the distribution in radians*

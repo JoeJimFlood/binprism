@@ -19,3 +19,4 @@ Returns Fourier series of the derivative
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
+![alt text](DiffExample.png "FourierSeries.diff() Example")

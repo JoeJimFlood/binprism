@@ -1,6 +1,6 @@
 # binprism.FourierSeries.copy
 **`FourierSeries.copy()`** <br />
-Creates a copy of the Fourier series object.
+Creates a copy of the Fourier series object so that the original Fourier series is not changed when its copies are edited.
 ## Returns
 **copy (binprism.FourierSeries):** *Copy of input Fourier Series*
 

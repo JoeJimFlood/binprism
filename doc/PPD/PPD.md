@@ -21,15 +21,18 @@ The `PPD` class is a periodic probability distribution defined by the Fourier co
 
 ## Examples
 ```
->>> fs = bp.FourierSeries([-2, 0.3 - 0.4j, -0.1])
->>> dist = bp.PPD(fs) #DC coefficient of the Fourier series will be modified so that the total area equals one
->>> dist
+>>> fs1 = bp.FourierSeries([-2, 0.3 - 0.4j, -0.1])
+>>> dist1 = bp.PPD(fs1) #DC coefficient of the Fourier series will be modified so that the total area equals one
+>>> dist1
 f(x) = exp(-2.0897052036655333 + (0.6)cos(x) + (0.8)sin(x) + (-0.2)cos(2x) + (-0.0)sin(2x))
+>>> fs2 = bp.FourierSeries([-2, 0, -0.5 + 0.25j]) #No influence of first harmonic on log-pdf
+>>> dist2 = bp.PPD(fs2)
 >>> x = np.linspace(0, 2*np.pi, 250)
->>> plt.plot(x, dist.pdf(x), color = 'b')
->>> plt.plot(2*[dist.mean()], [0, dist.pdf(dist.mean())], color = 'k', linestyle = ':')
->>> plt.text(dist.mean(), 1.1*dist.pdf(dist.mean()), '$\mu=%f%'%(round(dist.mean(), 3)))
+>>> plt.plot(x, dist1.pdf(x), color = 'b', label = "Distribution 1")
+>>> plt.plot(x, dist2.pdf(x), color = 'r', label = "Distribution 2")
 >>> plt.grid(True)
 >>> plt.xlim(0, 2*np.pi)
+>>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
+![alt text](PPDExample.png "PPD Example")

@@ -1,5 +1,5 @@
 # binprism.PPD.disp
-**`PPD.disp()`**
+**`PPD.disp()`** <br />
 Returns the circular dispersion of the distribution
 
 ## Returns

@@ -7,8 +7,8 @@ Returns the circular dispersion of the distribution
 
 ## Example
 ```
->>> fs = bp.FourierSeries([-2, -0.7j, 0.05 - 0.01j])
+>>> fs = bp.FourierSeries([-2, -0.7j, 0.5 - 0.1j])
 >>> dist = bp.PPD(fs)
 >>> dist.disp()
-1.4243545417343204
+2.591293872227488
 ```

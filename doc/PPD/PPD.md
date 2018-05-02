@@ -18,3 +18,18 @@ The `PPD` class is a periodic probability distribution defined by the Fourier co
 [quantile](quantile.md) <br />
 [sim](sim.md) <br />
 [var](var.md)
+
+## Examples
+```
+>>> fs = bp.FourierSeries([-2, 0.3 - 0.4j, -0.1])
+>>> dist = bp.PPD(fs) #DC coefficient of the Fourier series will be modified so that the total area equals one
+>>> dist
+f(x) = exp(-2.0897052036655333 + (0.6)cos(x) + (0.8)sin(x) + (-0.2)cos(2x) + (-0.0)sin(2x))
+>>> x = np.linspace(0, 2*np.pi, 250)
+>>> plt.plot(x, dist.pdf(x), color = 'b')
+>>> plt.plot(2*[dist.mean()], [0, dist.pdf(dist.mean())], color = 'k', linestyle = ':')
+>>> plt.text(dist.mean(), 1.1*dist.pdf(dist.mean()), '$\mu=%f%'%(round(dist.mean(), 3)))
+>>> plt.grid(True)
+>>> plt.xlim(0, 2*np.pi)
+>>> plt.show()
+```

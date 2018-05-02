@@ -12,10 +12,8 @@ Finds the Fourier coefficients of the exponentiated wave using a Taylor series
 >>> x = np.array([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
 >>> np.exp(fs.eval(x))
 array([  8.18730753e-01,   4.09734979e-04,   2.74653570e-04,
-
          1.22140276e+00,   8.18730753e-01])
 >>> fs.exp().eval(x)
 array([  8.18730753e-01,   4.09734979e-04,   2.74653570e-04,
-
          1.22140276e+00,   8.18730753e-01])
 ```

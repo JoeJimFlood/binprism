@@ -20,3 +20,4 @@ Returns the mean angle of the distribution
 >>> plt.ylim(0, 1)
 >>> plt.show()
 ```
+![alt text](MeanExample.png "PPD.mean() example")

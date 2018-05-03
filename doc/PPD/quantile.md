@@ -10,3 +10,15 @@ Quantile function evaluated at a probability using the Newton-Raphson method
 
 ## Returns
 **theta (numeric or array-like):** *Quantile function evaluated at* `p`
+
+## Example
+```
+>>> fs = bp.FourierSeries([-2, 0.2 + 0.3j, -0.7 - 0.4j, -0.1 - 0.15j])
+>>> dist = bp.PPD(fs)
+>>> p = np.linspace(0, 1, 250)[1:-1]
+>>> plt.plot(p, dist.quantile(p), color = 'k')
+>>> plt.xlim(0, 1)
+>>> plt.grid(True)
+>>> plt.show()
+```
+![alt text](QuantileExample.png "PPD.quantile() example")

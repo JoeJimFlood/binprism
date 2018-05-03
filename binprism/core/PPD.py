@@ -21,6 +21,7 @@ class PPD:
         self.log_pdf_coef[0] -= log(init_area) #Normalize so that area of one period is equal to one
         self.L = self.log_pdf_coef
         self.m = MomentCalculator(self)
+        self.time_range = (0, 2*pi)
 
     def __repr__(self):
         return 'f(x) = exp({})'.format(self.log_pdf_coef)

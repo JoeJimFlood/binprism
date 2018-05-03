@@ -14,7 +14,8 @@ Returns the mean angle of the distribution
 >>> x = np.linspace(0, 2*np.pi, 250)
 >>> plt.plot(x, dist.pdf(x), color = 'b')
 >>> plt.plot(2*[dist.mean()], [0, dist.pdf(dist.mean())], color = 'k', linestyle = ':')
->>> plt.text(dist.mean(), 1.1*dist.pdf(dist.mean()), "$\mu={}$".format(round(dist.mean(), 3)), ha = "center", va = "center")
+>>> plt.text(dist.mean(), 1.1*dist.pdf(dist.mean()), "$\mu={}$".format(round(dist.mean(), 3)),
+             ha = "center", va = "center")
 >>> plt.grid(True)
 >>> plt.xlim(0, 2*np.pi)
 >>> plt.ylim(0, 1)

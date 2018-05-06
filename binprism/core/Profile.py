@@ -2,6 +2,7 @@ from __future__ import division
 from .FourierSeries import FourierSeries
 from .PPD import PPD
 from .tools import counting
+import binprism as bp
 import numpy as np
 from math import pi, log
 from datetime import time, datetime
@@ -38,9 +39,9 @@ class Profile:
         return str(self)
 
     def __add__(self, other):
-        self_hourly = self['hourly']
-        other_hourly = other['hourly']
-        return Profile.from_counts(self_hourly + other_hourly, np.arange(24), self.dist.log_pdf_coef.n_harmonics, self.time_range)
+        self_hourly = self[24]
+        other_hourly = other[24]
+        return bp.fit(self_hourly + other_hourly, np.arange(24), self.dist.log_pdf_coef.n_harmonics, self.time_range)
 
     def __mul__(self, other):
         return Profile(self.dist, other*self.total, self.time_range)

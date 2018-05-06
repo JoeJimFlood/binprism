@@ -26,9 +26,6 @@ A `FourierSeries` is the most basic class in the BinPrism package. It contains t
 
 ## Example
 ```
->>> import binprism as bp
->>> import numpy as np
->>> import matplotlib.pyplot as plt
 >>> fs1 = bp.FourierSeries([1, 0.5])
 >>> fs1
 1.0 + (1.0)cos(x) + (-0.0)sin(x)

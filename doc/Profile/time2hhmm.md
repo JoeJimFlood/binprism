@@ -8,3 +8,13 @@ Converts a time value to a time in hh:mm format.
 
 ## Returns
 **outtime (str):** *Time in hh:mm format*
+
+## Examples
+```
+>>> profile1 = bp.fit([100, 200, 250, 300, 250, 100, 50, 50, 100, 150, 250, 200], range(0, 24, 2), 5, (0, 24))
+>>> profile2 = bp.fit([100, 200, 250, 300, 250, 100, 50, 50, 100, 150, 250, 200], range(0, 12, 1), 5, (0, 12))
+>>> profile1.time2hhmm(9)
+'9:00 AM'
+>>> profile2.time2hhmm(9)
+'6:00 PM'
+```

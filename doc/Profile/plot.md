@@ -14,7 +14,7 @@ Plots the profile
 >>> profile = bp.fit(data, bins, 5, (0, 24))
 >>> plt.bar(bins, data/2, 2, align = 'edge', facecolor = '#c0c0c0', edgecolor = 'k')
 >>> profile.plot(288, color = 'b', linewidth = 3)
->>> plt.xlim(0, 24)
+>>> plt.xlim(profile.time_range)
 >>> plt.xticks(range(0, 25, 4))
 >>> plt.xlabel('Hour of Day')
 >>> plt.ylabel('Events per Hour')

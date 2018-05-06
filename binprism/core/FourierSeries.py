@@ -133,10 +133,10 @@ class FourierSeries:
         '''
         return FourierSeries(self.c)
 
-    def expand(self):
+    def _expand(self):
         self.c = np.append(self.c, np.conj(np.fliplr(np.reshape(self.c, (1, self.n_harmonics+1))[:, 1:])[0]))
 
-    def contract(self):
+    def _contract(self):
         self.c = self.c[:self.n_harmonics+1]
 
     def power(self, n):
@@ -156,7 +156,7 @@ class FourierSeries:
         if n == 0:
             return FourierSeries([1])
         
-        self.expand()
+        self._expand()
         result = np.fft.fftshift(self.c)
         coeff = result
         
@@ -165,7 +165,7 @@ class FourierSeries:
         
         result = np.fft.ifftshift(result)
         K = len(result)//2
-        self.contract()
+        self._contract()
         return FourierSeries(result[:K+1])
 
     def exp(self, tol = 2**-23, max_iter = 1000):

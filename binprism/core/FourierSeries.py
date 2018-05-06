@@ -254,7 +254,11 @@ class FourierSeries:
         result = self.c[0]*(b - a)
         antiderivative = self.antiderivative()
         result += (antiderivative.eval(b) - antiderivative.eval(a))
-        return np.real(result)
+        try:
+            len(np.real(result))
+            return np.real(result)
+        except TypeError:
+            return float(np.real(result))
 
     def shift(self, phi, inplace = True):
         '''

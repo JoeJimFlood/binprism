@@ -190,31 +190,6 @@ class FourierSeries:
 
         return out
 
-    def log(self, tol = 2**-23, max_iter = 1000):
-        '''
-        Finds the Fourier coefficients of the logarithm of the wave using a Taylor series. If any part of the wave is negative, an error will be raised.
-
-        Parameters
-        ----------
-        tol (float):
-            Tolerance for Taylor series approximation
-        max_iter (int):
-            Maximum number of Taylor series iterations
-        '''
-        if self.min() <= 0:
-            raise ValueError('Cannot take logarithm of function with negative values')
-
-        out = self - 1
-        for n in range(2, max_iter + 1):
-            change = ((self-1)**n)*(((-1)**(n+1))/n)
-            out += change
-            if np.linalg.norm(change.c, np.inf) < tol:
-                break
-        if n == max_iter:
-            print('WARNING: Maximum number of iterations reached in Fourier series logarithm')
-
-        return out
-
     def eval(self, x):
         '''
         Evaluates the Fourier series at the value(s) x

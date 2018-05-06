@@ -38,3 +38,17 @@
 	*Removed time_range attribute from PPD
 	*Renamed FourierSeries.c to FourierSeries.coef
 	 but kept c as an alias
+
+========================v0.2.3=========================
+2018-05-06	Joe Flood	<joejimflood@gmail.com>
+
+	*Removed FourierSeries.log() method as it was
+	 not necessary and didn't work right
+	*Changed FourierSeries.integrate() soth that it
+	 returns a float if a single number is input
+	*Updated Profile.__add__() so that it is
+	 compatible with changes since it was written
+	*Made expand() and contract() methods in
+	 FourierSeries private methods
+	*Renamed PPD.m to PPD.moments (but kept .m as
+	 an alias)

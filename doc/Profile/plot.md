@@ -21,4 +21,4 @@ Plots the profile
 >>> plt.grid(True)
 >>> plt.show()
 ```
-![alt text](ProfilePlotExample.png, "Profile.plot() Example")
+![alt text](ProfilePlotExample.png "Profile.plot() Example")

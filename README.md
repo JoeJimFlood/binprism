@@ -7,4 +7,4 @@ Often, data from continuous variables are placed into discrete bins. Large bins 
 ## Contents
 [Data Structure](doc/datastructure.md) <br />
 [Methodology](doc/methodology.md) <br />
-Examples <br />
+[Examples](doc/examples.md) <br />

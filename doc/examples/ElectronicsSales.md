@@ -19,17 +19,18 @@ According to the US Census Bureau's [Monthly Retail Trade](https://www.census.go
 A profile for the following data can be fit using the following commands:
 ```
 >>> import calendar
->>> sales = [670, 685, 861, 897, 958, 1016, 1003, 1025, 952, 929, 794, 702]
+>>> sales = np.array([670, 685, 861, 897, 958, 1016, 1003, 1025, 952, 929, 794, 702])
 >>> month_lengths = np.array([0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30])
 >>> month_lengths2 = np.array(list(month_lengths[1:]) + [31])
 >>> month_starts = np.cumsum(month_lengths)
 >>> month_labels = calendar.month_abbr[1:13]
 >>> n_harmonics = 3
 >>> sales_profile = bp.fit(sales, month_starts, n_harmonics, (0, 365))
->>> plt.bar(month_starts, sales, month_lengths2, align = 'edge', facecolor = 'c', edgecolor = 'k')
+>>> plt.bar(month_starts, sales/month_lengths2, month_lengths2, align = 'edge', facecolor = 'c', edgecolor = 'k')
 >>> sales_profile.plot(365, color = 'm', linewidth = 3)
 >>> plt.xlim(sales_profile.time_range)
 >>> plt.xticks(month_starts + 0.5*month_lengths2, month_labels)
->>> plt.ylabel('Sales (Millions of Dollars)')
+>>> plt.ylabel('Average Daily Sales (Millions of Dollars)')
+>>> plt.title('US Paint and Wallpaper Sales by Month, 2010-2017\n(Inflation Adjusted)')
 >>> plt.show()
 ```

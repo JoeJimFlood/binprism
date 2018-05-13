@@ -34,8 +34,7 @@ A profile for the following data can be fit using the following commands:
 >>> plt.title('US Paint and Wallpaper Sales by Month, 2010-2017\n(Inflation Adjusted)')
 >>> plt.show()
 ```
-![alt text](PaintSales.png "Paint Sales Profile vs. Observed Data")
+<<<<<<< HEAD
+![alt text](PaintSales.png "Paint Sales Profile vs Observed Data")
 Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between Memorial Day (May 29) and Labor Day (September 3)
-```
 
-```

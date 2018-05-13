@@ -34,3 +34,4 @@ A profile for the following data can be fit using the following commands:
 >>> plt.title('US Paint and Wallpaper Sales by Month, 2010-2017\n(Inflation Adjusted)')
 >>> plt.show()
 ```
+![alt text](PaintSales.png "Plot of Paint Sales profile vs Observed Data")

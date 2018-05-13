@@ -3,18 +3,18 @@ According to the US Census Bureau's [Monthly Retail Trade](https://www.census.go
 
 |Month    |Sales|
 |---------|----:|
-|January  |5.562|
-|February |5.725|
-|March    |5.737|
-|April    |5.168|
-|May      |5.560|
-|June     |5.629|
-|July     |5.746|
-|August   |5.960|
-|September|5.530|
-|October  |5.419|
-|November |7.104|
-|December |9.003|
+|January  |670  |
+|February |685  |
+|March    |861  |
+|April    |897  |
+|May      |958  |
+|June     |1016 |
+|July     |1003 |
+|August   |1025 |
+|September|952  |
+|October  |929  |
+|November |794  |
+|December |702  |
 
 A profile for the following data can be fit using the following commands:
 ```
@@ -33,4 +33,9 @@ A profile for the following data can be fit using the following commands:
 >>> plt.ylabel('Average Daily Sales (Millions of Dollars)')
 >>> plt.title('US Paint and Wallpaper Sales by Month, 2010-2017\n(Inflation Adjusted)')
 >>> plt.show()
+```
+![alt text](PaintSales.png "Paint Sales Profile vs. Observed Data")
+Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between Memorial Day (May 29) and Labor Day (September 3)
+```
+
 ```

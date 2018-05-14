@@ -1,5 +1,5 @@
 # Electronics Sales
-According to the US Census Bureau's [Monthly Retail Trade](https://www.census.gov/retail/index.html#mrts) statistics, the average monthly electronics sales in billions of [January 2018$](https://www.bls.gov/data/inflation_calculator.htm) from 2010-2017 are as follows:
+According to the US Census Bureau's [Monthly Retail Trade](https://www.census.gov/retail/index.html#mrts) statistics, the average monthly electronics sales in millions of [January 2018$](https://www.bls.gov/data/inflation_calculator.htm) from 2010-2017 are as follows:
 
 |Month    |Sales|
 |---------|----:|

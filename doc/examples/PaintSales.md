@@ -16,7 +16,7 @@ According to the US Census Bureau's [Monthly Retail Trade](https://www.census.go
 |November |794  |
 |December |702  |
 
-A profile for the following data can be fit using the following commands:
+A profile for the data can be fit using the following commands:
 ```
 >>> import calendar
 >>> sales = np.array([670, 685, 861, 897, 958, 1016, 1003, 1025, 952, 929, 794, 702])

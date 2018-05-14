@@ -1,3 +1,3 @@
 # Examples
-[Paint and Wallpaper Sales](examples/ElectronicsSales.md) </br>
+[Paint and Wallpaper Sales](examples/PaintSales.md) </br>
 Traffic Counts

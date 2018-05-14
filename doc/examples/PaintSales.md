@@ -35,5 +35,32 @@ A profile for the following data can be fit using the following commands:
 >>> plt.show()
 ```
 ![alt text](PaintSales.png "Paint Sales Profile vs Observed Data") <br />
-Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between Memorial Day (May 29) and Labor Day (September 3)
-
+Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between President's Day (Feb 19) and Memorial Day (May 29)
+```
+>>> from datetime import datetime, timedelta
+>>> week_starts = []
+>>> startdate = datetime(2018, 2, 19)
+>>> for i in range(14):
+...     week_starts.append(startdate.strftime('%b%d'))
+...     startdate += timedelta(days = 7)
+>>> Feb19 = month_starts[1] + 18 #Month start numbers are zero-indexed
+>>> May29 = month_starts[4] + 28
+>>> import pandas as pd
+>>> weekly_sales = pd.Series(sales_profile[Feb19:May29:7], index = week_starts)
+>>> weekly_sales
+Feb19    176.841116
+Feb26    182.929408
+Mar05    188.699142
+Mar12    193.921194
+Mar19    198.458013
+Mar26    202.275635
+Apr02    205.438091
+Apr09    208.085751
+Apr16    210.402889
+Apr23    212.581405
+Apr30    214.787191
+May07    217.133747
+May14    219.665673
+May21    222.353073
+dtype: float64
+```

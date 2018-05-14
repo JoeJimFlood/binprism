@@ -37,17 +37,26 @@ A profile for the following data can be fit using the following commands:
 ![alt text](PaintSales.png "Paint Sales Profile vs Observed Data") <br />
 Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between President's Day (Feb 19) and Memorial Day (May 29)
 ```
+>>> Feb19 = month_starts[1] + 18 #Month start numbers are zero-indexed
+>>> May29 = month_starts[4] + 28
+>>> weekly_sales = sales_profile[Feb19:May29:7]
+>>> weekly_sales
+array([ 176.84111625,  182.92940754,  188.69914159,  193.92119388,
+        198.45801334,  202.27563516,  205.43809072,  208.0857512 ,
+        210.40288854,  212.58140537,  214.78719134,  217.13374721,
+        219.66567345,  222.35307329])
+```
+Now add some labels
+```
 >>> from datetime import datetime, timedelta
 >>> week_starts = []
 >>> startdate = datetime(2018, 2, 19)
 >>> for i in range(14):
 ...     week_starts.append(startdate.strftime('%b%d'))
 ...     startdate += timedelta(days = 7)
->>> Feb19 = month_starts[1] + 18 #Month start numbers are zero-indexed
->>> May29 = month_starts[4] + 28
 >>> import pandas as pd
->>> weekly_sales = pd.Series(sales_profile[Feb19:May29:7], index = week_starts)
->>> weekly_sales
+>>> weekly_sales_with_labels = pd.Series(weekly_sales, index = week_starts)
+>>> weekly_sales_with_labels
 Feb19    176.841116
 Feb26    182.929408
 Mar05    188.699142

@@ -35,11 +35,11 @@ A profile for the data can be fit using the following commands:
 >>> plt.show()
 ```
 ![alt text](PaintSales.png "Paint Sales Profile vs Observed Data") <br />
-Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between President's Day (Feb 19) and Memorial Day (May 29)
+Using the fit profile, estimate the 2018 weekly paint and wallpaper sales between President's Day (Feb 19) and Memorial Day (May 28)
 ```
 >>> Feb19 = month_starts[1] + 18 #Month start numbers are zero-indexed
->>> May29 = month_starts[4] + 28
->>> weekly_sales = sales_profile[Feb19:May29:7]
+>>> May28 = month_starts[4] + 27
+>>> weekly_sales = sales_profile[Feb19:May28:7]
 >>> weekly_sales
 array([ 176.84111625,  182.92940754,  188.69914159,  193.92119388,
         198.45801334,  202.27563516,  205.43809072,  208.0857512 ,

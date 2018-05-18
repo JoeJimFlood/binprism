@@ -37,14 +37,19 @@ The following code fits profiles to match the data:
 >>> wb_counts = [387, 316, 237, 219, 442, 1491, 2472, 2716, 2809, 2294, 2159, 1991,
 ...              2380, 2119, 2052, 2333, 2434, 2122, 2188, 2385, 1821, 1760, 1314, 836]
 >>> hours = list(range(24))
->>> n_harmonics = 5
+>>> n_harmonics = 4
 >>> time_range = (0, 24)
 >>> eb_profile = bp.fit(eb_counts, hours, n_harmonics, time_range)
 >>> wb_profile = bp.fit(wb_counts, hours, n_harmonics, time_range)
->>> plt.bar(hours, eb_counts, 24*[1], align = 'edge', facecolor = '#808080', edgecolor = 'k', label = 'Eastbound Counts')
->>> plt.bar(hours, wb_counts, 24*[1], align = 'edge', facecolor = '#808080', edgecolor = 'k', label = 'Westbound Counts')
+>>> plt.bar(hours, eb_counts, 24*[1], align = 'edge', alpha = 0.5,
+...         facecolor = '#8080ff', edgecolor = 'k', label = 'Eastbound Counts')
+>>> plt.bar(hours, wb_counts, 24*[1], align = 'edge', alpha = 0.5,
+...         facecolor = '#ff8080', edgecolor = 'k', label = 'Westbound Counts')
+>>> eb_profile.plot(288, color = 'b', linewidth = 2, label = 'Eastbound Profile')
+>>> wb_profile.plot(288, color = 'r', linewidth = 2, label = 'Westbound Profile')
 >>> plt.xlim(0, 24)
 >>> plt.ylabel('Vehicles per Hour')
 >>> plt.xticks(list(range(0, 25, 3)), ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'])
+>>> plt.legend(loc = 'best')
 >>> plt.show()
 ```

@@ -58,14 +58,14 @@ class Profile:
     def __getitem__(self, *args):
 
         if type(args[0]) == int or type(args[0]) == float:
-            times = np.linspace(self.time_range[0], self.time_range[1], int(args[0]), False)
+            times = np.linspace(self.time_range[0], self.time_range[1], int(args[0]) + 1)
             return counting.array(self, times)
 
         elif type(args[0]) == slice:
             if args[0].step == None:
                 return self.count_events(args[0].start, args[0].stop)
             else:
-                return counting.array(self, np.arange(args[0].start, args[0].stop + args[0].step, args[0].step))[:-1]
+                return counting.array(self, np.arange(args[0].start, args[0].stop + args[0].step, args[0].step))
 
         else:
             return counting.array(self, *args)

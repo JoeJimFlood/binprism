@@ -53,7 +53,7 @@ The following code fits profiles to match the data:
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
-![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts")
+![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts") </ br>
 Now estimate 15-minute counts between 5 and 10 AM.
 ```
 >>> import pandas as pd
@@ -91,3 +91,34 @@ Start Time
 09:30       550.153844  541.231644
 09:45       531.983684  532.235317
 ```
+Finally, simulate a day of Eastbound counts.
+```
+>>> sim_trips = eb_profile.sim(int(eb_profile.total))
+>>> sim_trips[:12]
+array([ 10.28490207,  17.01079742,   9.68251655,  13.9904729 ,
+        12.45575775,   8.95413898,  14.45038468,  19.00851263,
+        17.89740555,  18.1722341 ,  13.60739526,  18.57917681])
+>>> plt.hist(sim_trips, 24, facecolor = 'b', edgecolor = 'k')
+>>> plt.xlim(0, 24)
+>>> plt.xticks(list(range(0, 25, 3)), ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'])
+>>> plt.ylabel('Number of Simulated Trips')
+>>> plt.show()
+```
+![alt text](TrafficCountsSim.png "Simulated houly counts") </ br>
+Compare with observed counts.
+```
+>>> from scipy.stats import pearsonr
+>>> sim_counts = np.histogram(sim_trips, 24)[0]
+>>> (r, p) = pearsonr(sim_counts, eb_counts)
+>>> plot_range = (0, 1.1*max(max(eb_counts), max(sim_counts)))
+>>> plt.scatter(sim_counts, eb_counts, color = 'b', alpha = 0.7)
+>>> plt.plot(plot_range, plot_range, color = 'k', linestyle = ':')
+>>> plt.xlabel('Simulated Counts')
+>>> plt.ylabel('Observed Counts')
+>>> plt.xlim(plot_range)
+>>> plt.ylim(plot_range)
+>>> plt.grid(True)
+>>> plt.title('Observed Counts vs. Simulated Counts \nr={}'.format(round(r, 3)))
+>>> plt.show()
+```
+![alt text](TrafficCountCompare.png "Comparison of simulated and observed counts")

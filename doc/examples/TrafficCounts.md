@@ -54,3 +54,40 @@ The following code fits profiles to match the data:
 >>> plt.show()
 ```
 ![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts")
+Now estimate 15-minute counts between 5 and 10 AM.
+```
+>>> import pandas as pd
+>>> from datetime import datetime, timedelta
+>>> times = []
+>>> start_time = datetime(1, 1, 1, 5)
+>>> for i in range(20):
+...     times.append(start_time.strftime('%H:%M'))
+...     start_time += timedelta(minutes = 15)
+>>> eb_15min_counts = eb_profile[5:10:0.25]
+>>> wb_15min_counts = wb_profile[5:10:0.25]
+>>> counts_15min = pd.DataFrame({'Start Time': times, 'Eastbound': eb_15min_counts, 'Westbound': wb_15min_counts})
+>>> counts_15min = counts_15min.set_index('Start Time')
+>>> counts_15min
+             Eastbound   Westbound
+Start Time                        
+05:00       131.980478  220.020586
+05:15       157.476864  279.719953
+05:30       189.112545  351.197888
+05:45       227.384562  432.166668
+06:00       272.285914  517.933100
+06:15       323.050427  601.698326
+06:30       377.963770  675.678870
+06:45       434.341025  732.812569
+07:00       488.751058  768.452534
+07:15       537.495831  781.383193
+07:30       577.249089  773.798306
+07:45       605.674481  750.367531
+08:00       621.830784  716.873672
+08:15       626.246603  678.950663
+08:30       620.671278  641.250753
+08:45       607.617211  607.102892
+09:00       589.852662  578.541905
+09:15       569.978038  556.531083
+09:30       550.153844  541.231644
+09:45       531.983684  532.235317
+```

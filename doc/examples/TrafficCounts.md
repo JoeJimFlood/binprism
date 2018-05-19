@@ -53,7 +53,7 @@ The following code fits profiles to match the data:
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
-![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts") </ br>
+![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts") </br>
 Now estimate 15-minute counts between 5 and 10 AM.
 ```
 >>> import pandas as pd
@@ -104,7 +104,7 @@ array([ 10.28490207,  17.01079742,   9.68251655,  13.9904729 ,
 >>> plt.ylabel('Number of Simulated Trips')
 >>> plt.show()
 ```
-![alt text](TrafficCountsSim.png "Simulated houly counts") </ br>
+![alt text](TrafficCountsSim.png "Simulated houly counts") </br>
 Compare with observed counts.
 ```
 >>> from scipy.stats import pearsonr

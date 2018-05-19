@@ -52,3 +52,11 @@
 	 FourierSeries private methods
 	*Renamed PPD.m to PPD.moments (but kept .m as
 	 an alias)
+
+========================v0.2.4=========================
+2018-05-18	Joe Flood	<joejimflood@gmail.com>
+	*Removed restriction in Profile.__getitem__() 
+         where indices had to be within the time range
+	*Changed Profile.__getitem__() method so that  
+	 if an array of length N is input, an array of
+	 length N-1 is returned

@@ -53,3 +53,4 @@ The following code fits profiles to match the data:
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
+![alt text](TrafficCounts.png "Fitting profiles to match hourly traffic counts")

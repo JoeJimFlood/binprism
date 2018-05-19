@@ -1,3 +1,3 @@
 # Examples
 [Paint and Wallpaper Sales](examples/PaintSales.md) </br>
-Traffic Counts
+[Traffic Counts](examples/TrafficCounts.md)

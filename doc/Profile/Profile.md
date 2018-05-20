@@ -3,7 +3,7 @@
 **dist (binprism.PPD):** *Probability distribution that events follow* <br />
 **total (numeric):** *Total number of events* <br />
 **time_range (tuple):** *Length-2 tuple indicating the start and end times of one period of events* <br />
-A profile of events distributed throughout a time period, such as events throughout the day or year.
+A profile of events distributed throughout a time period, such as events throughout the day or year. The number of events between time periods can be calculated using indexing.
 
 ## Attributes
 **dist (binprism.PPD):** *Probability distribution that events follow* <br />
@@ -26,7 +26,7 @@ A profile of events distributed throughout a time period, such as events through
 >>> fs = bp.FourierSeries([-2, 0.5j, 0.1 - 0.2j, 0.05 + 0.05j])
 >>> dist = bp.PPD(fs)
 >>> total_events = 1000
->>> time_range = (0, 24)
+>>> time_range = (0, 24) #Events occur over one day and time is measured in hours
 >>> profile = bp.Profile(dist, total_events, time_range)
 >>> profile
 binprism.Profile

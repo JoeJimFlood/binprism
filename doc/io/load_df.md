@@ -32,4 +32,4 @@ Read in profiles from Pandas data frame. Must have the following columns:
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
-[alt text](FromDFExample.png "Example of reading profiles from data frame")
+![alt text](FromDFExample.png "Example of reading profiles from data frame")

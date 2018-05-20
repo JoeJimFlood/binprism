@@ -12,6 +12,7 @@ Read in profiles from Pandas data frame. Must have the following columns:
 **df (pandas.DataFrame):** *Pandas data frame containing information on profiles. Must have the necessary columns:*
 
 # Example
+```
 >>> cols = ['Total', 'Start', 'End', 'c0',
 ...         'Re(c1)', 'Im(c1)', 'Re(c2)', 'Im(c2)', 'Re(c3)', 'Im(c3)',
 ...         'Re(c4)', 'Im(c4)', 'Re(c5)', 'Im(c5)', 'Re(c6)', 'Im(c6)']
@@ -30,4 +31,5 @@ Read in profiles from Pandas data frame. Must have the following columns:
 >>> plt.xlim(profiles[0].time_range)
 >>> plt.legend(loc = 'best')
 >>> plt.show()
+```
 [alt text](FromDFExample.png "Example of reading profiles from data frame")

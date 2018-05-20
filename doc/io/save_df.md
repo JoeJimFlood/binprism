@@ -11,7 +11,7 @@ Places information on profiles into a Pandas data frame. Columns are: <br />
 ## Returns
 **df (pandas.DataFrame):** *Data frame with information on each profile*
 
-##Example
+## Example
 ```
 >>> eb_counts = [590, 353, 301, 230, 393, 655, 1469, 2067, 2549, 2375, 1783, 2076, 
 ...              2193, 2017, 2513, 3262, 3294, 2915, 2657, 2412, 2323, 1928, 1925, 1118]

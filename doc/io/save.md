@@ -7,6 +7,6 @@ Class for writing profiles. Must be sequence of profiles.
 **profiles (sequence):** *Sequence of profiles to save*
 
 ## Methods
-df <br />
-csv <br />
-txt <br />
+[df](save_df.md) <br />
+[csv](save_csv.md) <br />
+[txt](save_txt.md) <br />

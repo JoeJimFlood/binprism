@@ -5,8 +5,8 @@ Places information on profiles into a Pandas data frame. Columns are: <br />
 **Start:** Start time of the `time_range` <br />
 **End:** End time of the `time_range` <br />
 **c0:** DC component of the log-pdf's Fourier series <br />
-*Re(ck):* The real part of element k of the log-pdf's Fourier series <br />
-*Im(ck):* The imaginary part of element k of the log-pdf's Fourier series <br />
+**Re(ck):** The real part of element k of the log-pdf's Fourier series <br />
+**Im(ck):** The imaginary part of element k of the log-pdf's Fourier series <br />
 
 ## Returns
 **df (pandas.DataFrame):** *Data frame with information on each profile*

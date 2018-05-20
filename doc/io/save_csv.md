@@ -16,6 +16,6 @@ Saves profile list as a csv by first [creating a data frame](save_df.md) and the
 >>> time_range = (0, 24)
 >>> eb_profile = bp.fit(eb_counts, hours, n_harmonics, time_range)
 >>> wb_profile = bp.fit(wb_counts, hours, n_harmonics, time_range)
->>> bp.save([eb_profile, wb_profile]).csv('BinPrismSaveCSVExample.csv')
+>>> bp.save([eb_profile, wb_profile]).csv('BinPrismCSVExample.csv')
 ```
-Output
+[Output](BinPrismCSVExample.csv')

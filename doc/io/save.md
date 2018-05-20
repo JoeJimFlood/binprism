@@ -6,7 +6,7 @@ Class for writing profiles. Must be sequence of profiles.
 ## Attributes
 **profiles (sequence):** *Sequence of profiles to save*
 
-##Methods
+## Methods
 df <br />
 csv <br />
 txt <br />

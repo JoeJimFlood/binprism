@@ -7,6 +7,6 @@ Class for reading profiles. Must be sequence of profiles. Indexing inherets the 
 **profiles (sequence):** *Sequence of loaded profiles*
 
 ## Methods
-df <br />
-csv <br />
-txt <br />
+[df](load_df.md) <br />
+[csv](load_csv.md) <br />
+[txt](load_txt.md) <br />

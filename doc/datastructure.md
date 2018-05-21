@@ -7,5 +7,6 @@ BinPrism uses nested classes. The most basic class is the [FourierSeries](Fourie
 [PPD](PPD/PPD.md) <br />
 [MomentCalculator](MomentCalculator/MomentCalculator.md) <br />
 [Profile](Profile/Profile.md) <br />
+Classes for [saving](io/save.md) and [loading](io/load.md) profiles <br />
 
 In all examples of methods, [NumPy](http://www.numpy.org/) and [Matplotlib](https://matplotlib.org/).pyplot are imported as `np` and `plt`, respectively.

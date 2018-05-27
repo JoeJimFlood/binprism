@@ -1,6 +1,4 @@
 # Methodology
-*Note: This algorithm has not been peer-reviewed. Sumbission to a mathematics journal is being considered.*<br />
-<br />
 The following methodology is used to fit profiles to binned data by calling the [fit](fit.md) method. <br />
 <br />
 Random events occur at different times following a profile P(t) with period T. Dividing the profile by the total number of events results in a periodic probability density function (pdf):

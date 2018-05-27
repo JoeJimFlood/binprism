@@ -5,6 +5,7 @@ Often, data from continuous variables are placed into discrete bins. Large bins 
 ![Demonstration of BinPrism](doc/BinPrismDemo.gif)
 
 ## Contents
+[Installation](doc/installation.md) <br />
 [Data Structure](doc/datastructure.md) <br />
 [Methodology](doc/methodology.md) <br />
 [Examples](doc/examples.md) <br />

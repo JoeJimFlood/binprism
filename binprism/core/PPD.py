@@ -10,9 +10,24 @@ class PPD:
     '''
     Periodic probability distribution defined by the Fourier coefficients of the log-pdf
 
+    The `PPD` class is a periodic probability distribution defined by the Fourier coefficients of its log-pdf.
+    When created, the coefficients of the log-pdf are adjusted so the area under one period of the `PPD` is equal to one.
+
     Parameters
     ----------
-    log_pdf_coef (binprism.FourierSeries): Fourier series defining the log-pdf of the distribution (aka L)
+    log_pdf_coef (binprism.FourierSeries):
+        Fourier series defining the log-pdf of the distribution
+
+    Attributes
+    ----------
+    log_pdf_coef (binprism.FourierSeries):
+        Fourier series defining the log-pdf of the distribution
+    L:
+        Alias of `log_pdf_coef`
+    moments (binprism.MomentCalculator):
+        Circular moments of the distribution
+    m:
+        Alias of `moments`
     '''
     def __init__(self, log_pdf_coef):
 
@@ -29,33 +44,33 @@ class PPD:
 
     def pdf(self, theta):
         '''
-        Evaluates the probability density function at theta
+        Evaluates the probability density function at `theta`
 
         Parameters
         ----------
         theta (numeric or array-like):
-            Angle at which to evaluate the pdf
+            Angle at which to evaluate the PDF
 
         Returns
         -------
         f (numeric or array-like):
-            pdf evaluated at theta
+            PDF evaluated at theta
         '''
         return np.exp(self.log_pdf_coef.eval(theta))
 
     def cdf(self, theta):
         '''
-        Cummulative distribution function at theta
+        Cummulative distribution function at `theta`
 
         Parameters
         ----------
         theta (numeric or array-like):
-            Angle at which to evaluate the cdf
+            Angle at which to evaluate the CDF
 
         Returns
         -------
         F (numeric or array-like):
-            cdf evaluated at theta
+            CDF evaluated at theta
         '''
         return self.log_pdf_coef.exp().integrate(0, theta)
 
@@ -77,7 +92,7 @@ class PPD:
         Returns
         -------
         theta (numeric or array-like):
-            Quantile function evaluated at p
+            Quantile function evaluated at `p`
         '''
         try:
             assert p >= 0 and p <= 1, 'p must be between 0 and 1'
@@ -95,30 +110,49 @@ class PPD:
     def mean(self):
         '''
         Returns the mean angle of the distribution
+
+        Returns
+        -------
+        mean (float):
+            Mean angle of the distribution in radians
         '''
         return np.angle(self.m[1])%(2*pi)
 
     def var(self):
         '''
         Returns the circular variance of the distribution
+
+        Returns
+        -------
+        var (float):
+            Circular variance of the distribution
         '''
         return 1 - abs(self.m[1])
 
     def disp(self):
         ''''
         Returns the circular dispersion of the distribution
+
+        Returns
+        -------
+        disp (float):
+            Circular dispersion of the distribution
         '''
         (R1, R2) = abs(self.m[1:3])
         return (1 - R2)/(2*R1**2)
 
-    #def sim(self, N, tol = 1e-8, max_iter = 1000, n_interpolation_points = 4):
     def sim(self, N, **kwargs):
         '''
-        Simulates N points following the distribution by simulating N random values between 0 and 1 and then evaluating the quantile function
+        Simulates `N` angles following the distribution by simulating N random values between 0 and 1 and then evaluating the quantile function
 
         N (int):
-            Number of events to simulate
+            Number of angles to simulate
         **kwargs:
-            Additional arguments for evaluating quantile function
+            Additional arguments for evaluating the quantile function
+
+        Returns
+        -------
+        angles (numpy.array):
+            Simulated angles
         '''
         return self.quantile(np.random.random(N), **kwargs)

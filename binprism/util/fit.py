@@ -6,18 +6,23 @@ from ..core.Profile import Profile
 
 def fit(data, bins, n_harmonics, time_range):
     '''
-    Fit profile from binned data
+    Fits a profile to best match binned data by solving the linear system of equations described in the methodology section in the documentation.
 
     Parameters
     ----------
     data (array-like):
-        Data
+        Data to fit profile to match
     bins (array-like):
         Start times of each bin. The length must be the same as `data`
     n_harmonics (int):
         Maximum number of harmonics used in fitting the log-pdf of the underlying distribution
     time_range (tuple):
         Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+
+    Returns
+    -------
+    Profile (binprism.Profile):
+        Profile fit from input data
     '''
     for b in bins:
         if b < time_range[0] or b >= time_range[1]:
@@ -34,7 +39,7 @@ def fit(data, bins, n_harmonics, time_range):
     total = data.sum()
     props = data / total
 
-    #Create matrix for OLS
+    #Create design matrix for OLS
     X = np.zeros((N, 2*K+1), np.complex)
     for i in range(N):
         a = bins[i]

@@ -1,7 +1,7 @@
 # binprism.load.txt
 **`binprism.load.txt(fp)`** <br />
 
-Read in profiles from a text file encoded in the same way as the outputs of [save.txt()](save_txt.md)
+Reads in profiles from a text file encoded in the same way as the outputs of [save.txt()](save_txt.md)
 
 ## Parameters
 **fp (str):** *Filepath to read*

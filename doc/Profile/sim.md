@@ -7,7 +7,7 @@ Simulates `N` random events following the profile's underlying distribution but 
 **kwargs:** *Keyword arguments for evaluating the [quantile](https://github.com/JoeJimFlood/binprism/blob/master/doc/PPD/quantile.md) function*
 
 ## Returns
-**events (length-N array):** *Simulated events*
+**events (length-N numpy.array):** *Simulated events*
 
 ## Example
 ```

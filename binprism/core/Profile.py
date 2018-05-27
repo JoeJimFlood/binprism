@@ -13,6 +13,9 @@ class Profile:
     '''
     Demand profile
 
+    A profile of events distributed throughout a time period, such as events throughout the day or year.
+    The number of events between time periods can be calculated using indexing.
+
     Parameters
     ----------
     dist (binprism.PPD):
@@ -21,6 +24,17 @@ class Profile:
         Total number of events
     time_range (tuple):
         Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+
+    Attributes
+    ----------
+    dist (binprism.PPD):
+        Probability distribution that events follow
+    total (numeric):
+        Total number of events
+    time_range (tuple):
+        Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+    mean_time (float):
+        Mean time that events occur in the units defined by `time_range`
     '''
     def __init__(self, dist, total, time_range = (0, 24)):
         
@@ -74,11 +88,11 @@ class Profile:
 
     def time2angle(self, t):
         '''
-        Converts a time in the profile's units to angle that the earth has rotated since the day began in radians
+        Converts a time in the profile's units to angle between zero and 2-pi
 
         Parameters
         ----------
-        t (float or array-like)
+        t (numeric or array-like)
             Time(s) to convert to angles
 
         Returns
@@ -90,11 +104,11 @@ class Profile:
 
     def angle2time(self, theta):
         '''
-        Converts angle that the Earth has rotated since the beginning of the day in radians to units specified by time_range
+        Converts angle between zero and 2-pi to time in units specified by `time_range`
 
         Parameters
         ----------
-        theta (float or array-like):
+        theta (numeric or array-like):
             Angle(s) to convert to time
 
         Returns
@@ -114,6 +128,11 @@ class Profile:
             Time to display
         format24 (bool):
             Indicates whether or not to use 24-hour time format. If not specified, inferred based on local time zone.
+
+        Returns
+        -------
+        outtime (str):
+            Time in hh:mm format
         '''
         if format24 is None:
             if datetime.now(tzlocal()).tzname()[:2] == 'US':
@@ -142,29 +161,34 @@ class Profile:
         ----------
         amount (numeric):
             Amount in the units specified by time_dist to shift the demand
+
+        Returns
+        -------
+        shifted_profile (binprism.Profile):
+            Profile shifted by the amount specified
         '''
         phi = self.time2angle(amount)
         return Profile(PPD(self.dist.log_pdf_coef.shift(phi, False)), self.total, self.time_range)
 
     def eval(self, t):
         '''
-        Evaluates the event rate at time t
+        Evaluates the event rate at time `t`
         
         parameters
         ----------
         t (numeric or array-like):
-            Time(s) at which to evaluate the event rate in the units specified by time_range
+            Time(s) at which to evaluate the event rate in the units specified by `time_range`
 
         Returns
         -------
-        flow (numeric or array-like):
-            Event rate evaluated at time t
+        event_rate (numeric or array-like):
+            Event rate evaluated at time `t`
         '''
         return 2*pi/(self.time_range[1] - self.time_range[0])*self.total*self.dist.pdf(self.time2angle(t))
 
     def count_events(self, a, b):
         '''
-        Counts the number of events between times a and b
+        Counts the number of events between times `a` and `b`. Also works by calling `Profile[a:b]`
 
         Parameters
         ----------
@@ -184,18 +208,18 @@ class Profile:
    
     def sim(self, N, **kwargs):
         '''
-        Simulates N random events following the profile's underlying distribution but converted to the profile's time units
+        Simulates `N` random events following the profile's underlying distribution but converted to the profile's time units
 
         Parameters
         ----------
         N (int):
             Number of events to simulate
         kwargs:
-            binprism.PPD.sim keyword arguments
+            Keyword arguments for evaluating the quantile function
 
         Returns
         -------
-        events (length-N array):
+        events (length-N numpy.array):
             Simulated events
         '''
         return self.angle2time(self.dist.sim(N, **kwargs))

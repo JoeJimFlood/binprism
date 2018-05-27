@@ -5,7 +5,15 @@ class MomentCalculator:
     '''
     Calculates circular moments of periodic probability distributions.
 
+    The `MomentCalculator` class is used to calculate circular moments of its associated periodic probability distribution object.
+    The n-th circular moment is calculated by calling `MomentCalculator[n]`.
+
     Parameters
+    ----------
+    dist (binprism.PPD):
+        Distribution to calculate moments of
+
+    Attributes
     ----------
     dist (binprism.PPD):
         Distribution to calculate moments of

@@ -7,19 +7,24 @@ import codecs
 
 class save:
     '''
-    Class for writing profiles. Must be iterable of profiles.
+    Class for writing profiles. Must be sequence of profiles.
 
     Parameters
     ----------
-    profiles (iterable):
-        Iterable of binprism.Profile objects
+    profiles (sequence):
+        Sequence of binprism.Profile objects
+
+    Attributes
+    ----------
+    profiles (sequence):
+        Sequence of binprism.Profile objects
     '''
     def __init__(self, profiles):
         self.profiles = profiles
 
     def txt(self, fp):
         '''
-        Saves profiles to an encoded text file
+        Saves profiles to an encoded text file that can be read using the `load.txt()` method
 
         Parameters
         ----------
@@ -141,7 +146,17 @@ class save:
 
 class load:
     '''
-    Class for loading profiles
+    Class for reading profiles. Must be sequence of profiles. Indexing inherets the indexing of the sequence of profiles.
+
+    Parameters
+    ----------
+    profiles (sequence):
+        Sequence of loaded profiles
+
+    Attributes
+    ----------
+    profiles (sequence):
+        Sequence of loaded profiles
     '''
     def __init__(self, profiles):
         self.profiles = profiles
@@ -151,7 +166,14 @@ class load:
 
     @classmethod
     def txt(cls, fp):
-        
+        '''
+        Reads in profiles from a text file encoded in the same way as the outputs of `save.txt()`
+
+        Parameters
+        ----------
+        fp (str):
+            Filepath to read
+        '''
         f = codecs.open(fp, 'r', 'utf-8')
         lines = f.read().split(chr(9587))
         f.close()
@@ -204,18 +226,18 @@ class load:
     @classmethod
     def df(cls, df):
         '''
-        Read in profiles from Pandas data frame
+        Read in profiles from Pandas data frame. Must have the following columns:
+            `Total`: Total number of events
+            `Start`: Start time of the time_range
+            `End`: End time of the time_range
+            `c0`: DC component of the log-pdf's Fourier series
+            `Re(ck)`: The real part of element k of the log-pdf's Fourier series
+            `Im(ck)`: The imaginary part of element k of the log-pdf's Fourier series
 
         Parameters
         ----------
         df (pandas.DataFrame):
-            Pandas data frame containing information on profiles. Must have the following columns:
-                `Total`: Total number of events
-                `Start`: Start time of the time_range
-                `End`: End time of the time_range
-                `c0`: DC component of the log-pdf's Fourier series
-                `Re(ck)`: The real part of element k of the log-pdf's Fourier series
-                `Im(ck)`: The imaginary part of element k of the log-pdf's Fourier series
+            Pandas data frame containing information on profiles. Must have the necessary columns
         '''
         K = (len(df.columns)-4) // 2
         profiles = []

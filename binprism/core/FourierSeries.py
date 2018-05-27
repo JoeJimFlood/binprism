@@ -8,12 +8,26 @@ class FourierSeries:
     '''
     Fourier series representing real-valued periodic function
 
+    A `FourierSeries` is the most basic class in the BinPrism package.
+    It contains the coefficients of a Fourier series representing a real-valued periodic function. The function is of the form:
+    `coef[0] + coef[1]*exp(1j*x) + np.conj(coef[1])*exp(-1j*x) + coef[2]*exp(2j*x) + np.conj(coef[2])*exp(-2j*x) + ...`
+    `= coef[0] + 2*np.real(coef[1])*cos(x) - 2*np.imag(coef[1])*sin(x) + 2*np.real(coef[2])*cos(2*x) - 2*np.imag(coef[2])*sin(2*x) + ...`
+    
+    Parameters
+    ----------
+    coef (numpy.array):
+        Zero- and positive-indexed Fourier coefficients
+
     Attributes
     ----------
     coef (numpy.array):
-        DC component as well as positive-indexed elements of Fourier series (aka c)
+        Zero- and positive-indexed Fourier coefficients
     n_harmonics (int):
-        Number of component waves (aka K)
+        Number of harmonics represented by Fourier series (len(coef) - 1)
+    c:
+        Alias of coef
+    K:
+        Alias of n_harmonics
     '''
     def __init__(self, coef):
         self.coef = np.array(coef)
@@ -92,7 +106,7 @@ class FourierSeries:
 
     def max(self, N = 1024):
         '''
-        Estimates the maximum of the Fourier series
+        Estimates the maximum of the function represented by the Fourier series by evaluating at many equally-spaced points within a period and returning the maximum.
 
         Parameters
         ----------
@@ -102,13 +116,13 @@ class FourierSeries:
         Returns
         -------
         max (float):
-            Maximum value of function
+            Maximum of function represented by Fourier series
         '''
         return self.eval(np.linspace(0, 2*pi, N, False)).max()
 
     def min(self, N = 1024):
         '''
-        Estimates the minimum of the Fourier series
+        Estimates the minimum of the function represented by the Fourier series by evaluating at many equally-spaced points within a period and returning the minimum.
 
         Parameters
         ----------
@@ -118,13 +132,13 @@ class FourierSeries:
         Returns
         -------
         min (float):
-            Minimum value of function
+            Minimum of function represented by Fourier series
         '''
         return self.eval(np.linspace(0, 2*pi, N, False)).min()
 
     def copy(self):
         '''
-        Creates a copy of the Fourier Series object
+        Creates a copy of the Fourier series object so that the original Fourier series is not changed when its copies are edited.
 
         Returns
         -------
@@ -178,6 +192,11 @@ class FourierSeries:
             Tolerance for Taylor series approximation
         max_iter (int):
             Maximum number of Taylor series iterations
+
+        Returns
+        -------
+        out (binprism.FourierSeries):
+            Exponentiated Fourier series
         '''
         out = FourierSeries([1])
         for n in range(1, max_iter):
@@ -237,7 +256,7 @@ class FourierSeries:
 
     def integrate(self, a, b):
         '''
-        Integrates the function from a to b
+        Integrates the function represented by the Fourier series from `a` to `b`.
 
         Parameters
         ----------
@@ -262,19 +281,19 @@ class FourierSeries:
 
     def shift(self, phi, inplace = True):
         '''
-        Shifts a Fourier series by phase shift phi
+        Shifts a Fourier series by phase shift `phi`
 
         Parameters
         ----------
         phi (float):
-            Angle to shift Fourier series by
+            Phase shift to shift Fourier series by
         inplace (bool):
             Indicates whether or not to perform the operation in place
 
         Returns
         -------
         shifted_fourier_series (binprism.FourierSeries):
-            Fourier series shifted by phi
+            Fourier series shifted by `phi`
         '''
         k = np.arange(self.n_harmonics + 1)
         z = np.exp(-1j*phi*k)

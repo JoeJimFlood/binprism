@@ -1,6 +1,6 @@
 # binprism.save.txt
 **`binprism.save.txt(fp)`** <br />
-Saves profiles to an encoded text file that can be read using the [load.txt](load_txt.md) method
+Saves profiles to an encoded text file that can be read using the [load.txt()](load_txt.md) method
 
 ## Parameters
 **fp (str):** *Filepath to save to*

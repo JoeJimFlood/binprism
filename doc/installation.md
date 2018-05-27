@@ -7,7 +7,7 @@ To install BinPrism, perform the following steps: <br />
   ```
   b) Download the repository as a zip file, and extract it somewhere. <br />
 <br />
-2. Navigate to the directory where the repository was cloned or extracted to, and run the script install_binprism.py. A window will open up asking for the Python directory to install to, unless it is specified when the script is run from the command line:
+2. Navigate to the directory where the repository was cloned or extracted to, and run the script install_binprism.py. A window will open up asking for the Python directory to install to (the directory that contains the Python installation, not the directory where packages are installed), unless it is specified when the script is run from the command line:
 ```
 >python install_binprism.py [Python directory]
 ```

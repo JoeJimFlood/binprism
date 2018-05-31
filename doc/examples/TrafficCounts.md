@@ -49,7 +49,9 @@ The following code fits profiles to match the data:
 >>> wb_profile.plot(288, color = 'r', linewidth = 2, label = 'Westbound Profile')
 >>> plt.xlim(0, 24)
 >>> plt.ylabel('Vehicles per Hour')
->>> plt.xticks(list(range(0, 25, 3)), ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'])
+>>> plt.xticks(list(range(0, 25, 3)),
+...            [eb_profile.time2hhmm(i % 24) for i in range(0, 25, 3)],
+...            rotation = 15)
 >>> plt.legend(loc = 'best')
 >>> plt.show()
 ```
@@ -59,7 +61,7 @@ Now estimate 15-minute counts between 5 and 10 AM.
 >>> import pandas as pd
 >>> from datetime import datetime, timedelta
 >>> times = []
->>> start_time = datetime(1, 1, 1, 5)
+>>> start_time = datetime(2018, 3, 12, 5)
 >>> for i in range(20):
 ...     times.append(start_time.strftime('%H:%M'))
 ...     start_time += timedelta(minutes = 15)
@@ -95,12 +97,14 @@ Finally, simulate a day of Eastbound counts.
 ```
 >>> sim_trips = eb_profile.sim(int(eb_profile.total))
 >>> sim_trips[:12]
-array([ 18.9842878 ,  21.19106782,  15.62384709,  12.60366599,
-         8.08374696,  20.66921995,  13.63516345,  14.54651152,
-        23.76550704,  17.51488407,  12.89467524,  10.34848608])
+array([ 11.50349476,  20.52060506,  13.91631843,  21.31057433,
+         8.45089883,   7.98107033,  18.32463815,  15.70342346,
+        17.47518339,  12.8519406 ,  18.55525178,   8.77008476])
 >>> plt.hist(sim_trips, 24, facecolor = 'b', edgecolor = 'k')
 >>> plt.xlim(0, 24)
->>> plt.xticks(list(range(0, 25, 3)), ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM', '12AM'])
+>>> plt.xticks(list(range(0, 25, 3)),
+...            [eb_profile.time2hhmm(i%24) for i in range(0, 25, 3)],
+...            rotation = 15)
 >>> plt.ylabel('Number of Simulated Trips')
 >>> plt.show()
 ```

@@ -30,7 +30,7 @@ class FourierSeries:
         Alias of n_harmonics
     '''
     def __init__(self, coef):
-        self.coef = np.array(coef)
+        self.coef = np.array(coef).astype(complex)
         self.c = self.coef
         self.n_harmonics = len(coef) - 1
         self.K = self.n_harmonics

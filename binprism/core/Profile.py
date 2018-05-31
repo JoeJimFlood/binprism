@@ -23,7 +23,7 @@ class Profile:
     total (numeric):
         Total number of events
     time_range (tuple):
-        Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+        Length-2 tuple indicating the values of time that map to 0 and 2-pi, respectively, in the underlying distribution
 
     Attributes
     ----------
@@ -32,7 +32,7 @@ class Profile:
     total (numeric):
         Total number of events
     time_range (tuple):
-        Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+        Length-2 tuple indicating the values of time that map to 0 and 2-pi, respectively, in the underlying distribution
     mean_time (float):
         Mean time that events occur in the units defined by `time_range`
     '''

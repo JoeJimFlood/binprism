@@ -17,7 +17,7 @@ def fit(data, bins, n_harmonics, time_range):
     n_harmonics (int):
         Maximum number of harmonics used in fitting the log-pdf of the underlying distribution
     time_range (tuple):
-        Length-2 tuple indicating the values of time that map to 0 and 2π, respectively, in the underlying distribution
+        Length-2 tuple indicating the values of time that map to 0 and 2-pi, respectively, in the underlying distribution
 
     Returns
     -------
@@ -32,9 +32,9 @@ def fit(data, bins, n_harmonics, time_range):
 
     N = len(data)
     K = n_harmonics
-    data = np.array(data)
+    data = np.array(data).astype(float)
     bins = 2*pi*(np.array(bins) - time_range[0])/(time_range[1] - time_range[0])
-    bins = np.append(bins, 2*pi)
+    bins = np.append(bins, 2*pi).astype(float)
     widths = np.diff(bins)
     total = data.sum()
     props = data / total

@@ -1,6 +1,6 @@
 # binprism.fit
 **`binprism.fit(data, bins, n_harmonics, time_range)`** <br />
-Fits a profile to best match binned data by solving the linear system of equations described in the [methodology](methodology.md) section.
+Fits a profile to best match binned data by solving the linear system of equations described in the [methodology](methodology/methodology.md) section.
 
 ## Parameters
 **data (array-like):** *Data to fit profile to match* <br />

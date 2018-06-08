@@ -7,5 +7,5 @@ Often, data from continuous variables are placed into discrete bins. BinPrism fi
 ## Contents
 [Installation](doc/installation.md) <br />
 [Data Structure](doc/datastructure.md) <br />
-[Methodology](doc/methodology.md) <br />
+[Methodology](doc/methodology/methodology.md) <br />
 [Examples](doc/examples.md) <br />

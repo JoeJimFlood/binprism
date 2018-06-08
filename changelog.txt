@@ -60,3 +60,7 @@
 	*Changed Profile.__getitem__() method so that  
 	 if an array of length N is input, an array of
 	 length N-1 is returned
+	 
+=========================v1.0==========================
+2018-06-08	Joe Flood	<joejimflood@gmail.com>
+	*First public release

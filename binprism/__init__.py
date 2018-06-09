@@ -8,9 +8,10 @@ BinPrism fits continuous profiles to match these bins, allowing for the ability 
     *Produce clean visualizations
     *Re-aggregate data into differently-sized bins
     *Simulate random values following a continuous distribution matching the original data
-    
- Presently, BinPrism only works for periodic data (such as daily or yearly patterns),
- but it is hoped that in the future more domains will be supported.
+
+Like a prism separating light into different colors, BinPrism takes in binned data and separates it into simple
+waves, saving the contribution of each wave to memory. Presently, BinPrism only works for periodic data (such as
+daily or yearly patterns), but it is hoped that in the future more domains will be supported.
 
 Website: https://github.com/JoeJimFlood/binprism
 Installation Instructions: https://github.com/JoeJimFlood/binprism/blob/master/doc/installation.md

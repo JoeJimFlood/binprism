@@ -4,7 +4,9 @@ from ..core.FourierSeries import FourierSeries
 from ..core.PPD import PPD
 from ..core.Profile import Profile
 
-def fit(data, bins, n_harmonics, time_range):
+import scipy.optimize
+
+def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_method = 'fmin', optimization_norm = 2, **optimization_args):
     '''
     Fits a profile to best match binned data by solving the linear system of equations described in the methodology section in the documentation.
 
@@ -18,6 +20,14 @@ def fit(data, bins, n_harmonics, time_range):
         Maximum number of harmonics used in fitting the log-pdf of the underlying distribution
     time_range (tuple):
         Length-2 tuple indicating the values of time that map to 0 and 2-pi, respectively, in the underlying distribution
+    optimize (bool):
+        Boolean variable indicating whether or not to use a nonlinear optimization algorithm to better match the profile to the data
+    optimization_method (str):
+        Name of scipy.optimize method to use in nonlinear optimization
+    optimization_norm (float):
+        P-norm to minimize when comparing the input data to the profile
+    optimization_args:
+        Additional arguments for chosen optimization method
 
     Returns
     -------
@@ -54,6 +64,15 @@ def fit(data, bins, n_harmonics, time_range):
     XTX = np.dot(X.T, X)
     XTy = np.dot(X.T, y)
     c = np.linalg.solve(XTX, XTy)[:K+1]
+
+    #Run nonlinear optimization if desired
+    if optimize:
+        def error_function(params):
+            fs = FourierSeries(params)
+            dist = PPD(fs)
+            profile = Profile(dist, total, time_range)
+            return np.linalg.norm(profile[bins] - data, optimization_norm)
+        c = getattr(scipy.optimize, optimization_method)(c, **optimization_args)
 
     #Create distribution
     fs = FourierSeries(c)

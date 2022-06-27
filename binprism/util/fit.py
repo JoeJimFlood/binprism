@@ -67,12 +67,12 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_meth
 
     #Run nonlinear optimization if desired
     if optimize:
-        def error_function(params):
+        def error(params):
             fs = FourierSeries(params)
             dist = PPD(fs)
             profile = Profile(dist, total, time_range)
             return np.linalg.norm(profile[bins] - data, optimization_norm)
-        c = getattr(scipy.optimize, optimization_method)(c, **optimization_args)
+        c = getattr(scipy.optimize, optimization_method)(error, c, **optimization_args)
 
     #Create distribution
     fs = FourierSeries(c)

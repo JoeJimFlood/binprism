@@ -68,11 +68,13 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_meth
     #Run nonlinear optimization if desired
     if optimize:
         def error(params):
-            fs = FourierSeries(params)
+            coefs = params[:K+1] + 1j*params[K+1:]
+            fs = FourierSeries(coefs)
             dist = PPD(fs)
-            profile = Profile(dist, total, time_range)
-            return np.linalg.norm(profile[bins] - data, optimization_norm)
-        c = getattr(scipy.optimize, optimization_method)(error, c, **optimization_args)
+            return np.linalg.norm(dist.cdf(bins[1:]) - dist.cdf(bins[:-1]) - data/data.sum(), optimization_norm)
+        init_coefs = np.hstack((np.real(c), np.imag(c)))
+        opt_coefs = getattr(scipy.optimize, optimization_method)(error, init_coefs, **optimization_args)
+        c = opt_coefs[:K+1] + 1j*opt_coefs[K+1:]
 
     #Create distribution
     fs = FourierSeries(c)

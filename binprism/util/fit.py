@@ -6,7 +6,7 @@ from ..core.Profile import Profile
 
 from scipy.optimize import minimize
 
-def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_method = 'fmin', optimization_norm = 2, **optimization_args):
+def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_norm = 2, **optimization_args):
     '''
     Fits a profile to best match binned data by solving the linear system of equations described in the methodology section in the documentation.
 
@@ -22,8 +22,6 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_meth
         Length-2 tuple indicating the values of time that map to 0 and 2-pi, respectively, in the underlying distribution
     optimize (bool):
         Boolean variable indicating whether or not to use a nonlinear optimization algorithm to better match the profile to the data
-    optimization_method (str):
-        Name of scipy.optimize method to use in nonlinear optimization
     optimization_norm (float):
         P-norm to minimize when comparing the input data to the profile
     optimization_args:
@@ -73,7 +71,6 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_meth
             dist = PPD(fs)
             return np.linalg.norm(dist.cdf(bins[1:]) - dist.cdf(bins[:-1]) - data/data.sum(), optimization_norm)
         init_coefs = np.hstack((np.real(c), np.imag(c[1:])))
-        #opt_coefs = getattr(scipy.optimize, optimization_method)(error, init_coefs, **optimization_args)
         opt_coefs = minimize(error, init_coefs, **optimization_args)
         c = opt_coefs['x'][:K+1] + np.hstack((0, 1j*opt_coefs['x'][K+1:]))
 

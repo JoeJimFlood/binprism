@@ -4,7 +4,7 @@ from ..core.FourierSeries import FourierSeries
 from ..core.PPD import PPD
 from ..core.Profile import Profile
 
-import scipy.optimize
+from scipy.optimize import minimize
 
 def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_method = 'fmin', optimization_norm = 2, **optimization_args):
     '''
@@ -68,13 +68,14 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_meth
     #Run nonlinear optimization if desired
     if optimize:
         def error(params):
-            coefs = params[:K+1] + 1j*params[K+1:]
+            coefs = params[:K+1] + np.hstack((0, 1j*params[K+1:]))
             fs = FourierSeries(coefs)
             dist = PPD(fs)
             return np.linalg.norm(dist.cdf(bins[1:]) - dist.cdf(bins[:-1]) - data/data.sum(), optimization_norm)
-        init_coefs = np.hstack((np.real(c), np.imag(c)))
-        opt_coefs = getattr(scipy.optimize, optimization_method)(error, init_coefs, **optimization_args)
-        c = opt_coefs[:K+1] + 1j*opt_coefs[K+1:]
+        init_coefs = np.hstack((np.real(c), np.imag(c[1:])))
+        #opt_coefs = getattr(scipy.optimize, optimization_method)(error, init_coefs, **optimization_args)
+        opt_coefs = minimize(error, init_coefs, **optimization_args)
+        c = opt_coefs['x'][:K+1] + np.hstack((0, 1j*opt_coefs['x'][K+1:]))
 
     #Create distribution
     fs = FourierSeries(c)

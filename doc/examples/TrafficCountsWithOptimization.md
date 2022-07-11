@@ -39,6 +39,7 @@ Plotting the profiles along with the counts can show the improvement in the prof
 >>> plt.show()
 ```
 ![alt_text](wb_linear_vs_nonlinear.png "Linear and Nonlinear profiles for the Westbound direction")
+
 The counts can be re-estimated from the profiles using the following code. Correlations between the actual and estimated counts from the linear and nonlinear profiles can then be calculated.
 ```
 eb_counts_linear = eb_profile_linear[range(25)]

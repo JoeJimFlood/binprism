@@ -6,10 +6,10 @@ Fits a profile to best match binned data by solving the linear system of equatio
 **data (array-like):** *Data to fit profile to match* <br />
 **bins (array-like):** *Start time of each data bin. The length must be the same as* `data` <br />
 **n_harmonics (int):** *Maximum number of harmonics used in fitting the log-pdf of the underlying distribution* <br />
-**time_range (tuple):** *Length-2 tuple indicating the values that map to 0 and 2&pi;, respectively, in the underlying distribution*
-**optimize (bool):** *Boolean variable indicating whether or not to use a nonlinear optimization algorithm to better match the profile to the data*
-**optimization_norm (int or float):** *[P-norm](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html) to minimize when comparing the input data to the profile*
-**optimization_args:** *Additional arguments to be passed into [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)*
+**time_range (tuple):** *Length-2 tuple indicating the values that map to 0 and 2&pi;, respectively, in the underlying distribution* <br />
+**optimize (bool):** *Boolean variable indicating whether or not to use a nonlinear optimization algorithm to better match the profile to the data* <br />
+**optimization_norm (int or float):** *[P-norm](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html) to minimize when comparing the input data to the profile* <br />
+**optimization_args:** *Additional arguments to be passed into [scipy.optimize.minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)* <br />
 
 ## Returns
 **Profile (binprism.Profile):** *Profile fit from input data*

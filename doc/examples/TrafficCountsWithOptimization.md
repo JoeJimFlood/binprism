@@ -40,13 +40,14 @@ Plotting the profiles along with the counts can show the improvement in the prof
 ```
 ![alt_text](wb_linear_vs_nonlinear.png "Linear and Nonlinear profiles for the Westbound direction")
 
-The counts can be re-estimated from the profiles using the following code. Correlations between the actual and estimated counts from the linear and nonlinear profiles can then be calculated.
+The counts can be synthesized from the profiles using the following code.
 ```
 >>> eb_counts_linear = eb_profile_linear[range(25)]
 >>> eb_counts_nonlinear = eb_profile_nonlinear[range(25)]
 >>> wb_counts_linear = wb_profile_linear[range(25)]
 >>> wb_counts_nonlinear = wb_profile_nonlinear[range(25)]
 ```
+The correlations between these synthetic counts and the actual counts are shown in the table below.
 |Direction|Linear|Nonlinear|
 |---------|-----:|--------:|
 |Eastbound|0.990 |0.991    |

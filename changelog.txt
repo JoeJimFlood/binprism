@@ -31,6 +31,8 @@
 	*Changed Profile indexing so that a single
 	 numeric value results in that many bins being
 	 aggregated from the Profile
+	*Updated documentation to provide examples of
+	 this change and fix previous errors
 
 ========================v0.2.2=========================
 2018-03-10	Joe Flood	<joejimflood@gmail.com>
@@ -65,3 +67,9 @@
 2018-05-31	Joe Flood	<joejimflood@gmail.com>
 	*Made changes so code works in Python 2
 	*Added package information for public release
+
+=========================v1.1==========================
+2022-07-16	Joe Flood	<joejimflood@gmail.com>
+	*Added option to enhance estimated profile in
+	fit() method by adjusting coefficients using
+	scipy.optimize.minimize()

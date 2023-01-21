@@ -48,7 +48,7 @@ def fit(data, bins, n_harmonics, time_range, optimize = False, optimization_norm
     props = data / total
 
     #Create design matrix for OLS
-    X = np.zeros((N, 2*K+1), np.complex)
+    X = np.zeros((N, 2*K+1), complex)
     for i in range(N):
         a = bins[i]
         b = bins[i+1]

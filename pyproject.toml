@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "binprism"
+authors = [
+    {name = "Joseph J. Flood", email = "joejimflood@gmail.com"},
+]
+description = "Package for fitting continuous profiles to binned data"
+readme = "README.rst"
+keywords = ["data_analysis", "simulation"]
+license = {text = "GNU GPLv3"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib"
+]
+dynamic = ["version"]

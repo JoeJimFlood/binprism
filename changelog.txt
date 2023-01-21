@@ -73,3 +73,8 @@
 	*Added option to enhance estimated profile in
 	fit() method by adjusting coefficients using
 	scipy.optimize.minimize()
+
+========================v1.1.1=========================
+2023-01-21	Joe Flood	<joejimflood@gmail.com>
+	*Replaced uses of np.complex with complex
+	due to NumPy changing data type names

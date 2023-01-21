@@ -62,9 +62,9 @@ class FourierSeries:
             if len(self.c) == len(other.c):
                 return FourierSeries(self.c + other.c)
             elif len(self.c) > len(other.c):
-                return FourierSeries(self.c + np.concatenate((other.c, np.zeros(len(self.c) - len(other.c), np.complex))))
+                return FourierSeries(self.c + np.concatenate((other.c, np.zeros(len(self.c) - len(other.c), complex))))
             else:
-                return FourierSeries(np.concatenate((self.c, np.zeros(len(other.c) - len(self.c), np.complex))) + other.c) 
+                return FourierSeries(np.concatenate((self.c, np.zeros(len(other.c) - len(self.c), complex))) + other.c) 
         else:
             raise TypeError('Invalid type for Fourier Series addition')
 

@@ -16,7 +16,7 @@ def array(profile, times):
     counts (array):
         Array of counts
     '''
-    counts = np.empty_like(times, dtype = np.float)[:-1]
+    counts = np.empty_like(times, dtype = float)[:-1]
     N = len(times)
     for i in range(N-1):
         counts[i] = profile.count_events(times[i], times[i+1])
